@@ -1,0 +1,12 @@
+{
+  "name": "deyson-confidence-coaching",
+  "version": "1.0.0",
+  "description": "Camera Confidence Coaching Website",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
