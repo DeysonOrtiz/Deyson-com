@@ -1360,3 +1360,170 @@ html {
 ::selection {
     background: rgba(0, 0, 0, 0.1);
 }
+/* Discount Banner Styles */
+.discount-banner {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    margin: 40px 0;
+    box-shadow: 0 10px 30px rgba(29, 78, 216, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.discount-banner.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animated background effect */
+.discount-banner::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+.discount-content {
+    position: relative;
+    z-index: 2;
+}
+
+.discount-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1d4ed8;
+    border: 2px solid rgba(255, 255, 255, 1);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.discount-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.price-comparison {
+    margin-bottom: 24px;
+    font-size: 20px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.8);
+    margin-right: 16px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.discounted-price {
+    font-weight: 800;
+    font-size: 28px;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.discount-cta-button {
+    background: #ffffff;
+    color: #1d4ed8 !important;
+    padding: 18px 36px;
+    border: 3px solid #ffffff;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 280px;
+}
+
+.discount-cta-button:hover {
+    background: #f8fafc;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    color: #1d4ed8 !important;
+    border-color: #f8fafc;
+}
+
+.urgency-text {
+    font-size: 16px;
+    margin-top: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    animation: pulse 2s infinite;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .discount-banner {
+        padding: 30px 20px;
+        margin: 30px 0;
+    }
+
+    .discount-title {
+        font-size: 24px;
+    }
+
+    .price-comparison {
+        font-size: 18px;
+    }
+
+    .discounted-price {
+        font-size: 22px;
+    }
+
+    .discount-cta-button {
+        padding: 14px 24px;
+        font-size: 14px;
+    }
+}
