@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ title or "Camera Confidence Coaching" }}</title>
+        <link rel="stylesheet" href="/css/styles.css" />
+    </head>
+    <body>
+        {% include "components/navigation.njk" %}
+
+        <div class="container">
+            {{ content | safe }}
+        </div>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+            <div class="lightbox-content">
+                <div class="lightbox-close" onclick="closeLightbox()">
+                    &times;
+                </div>
+                <div id="lightbox-video" class="lightbox-video"></div>
+                <div id="lightbox-video-title" class="lightbox-video-title"></div>
+            </div>
+        </div>
+
+        <script src="/js/script.js"></script>
+
+        <!-- Video initialization script -->
+        <script>
+            // Default videos available on all pages
+            const defaultVideos = {
+                video0: { id: "1095226090", padding: "80.28%" },
+                video1: { id: "1056853912", padding: "63.28%" },
+                video2: { id: "1052267805", padding: "56.25%" },
+                video3: { id: "847106055", padding: "100%" },
+            };
+
+            // Initialize videos
+            let videos = { ...defaultVideos };
+
+            // Function to add page-specific videos
+            function addVideos(newVideos) {
+                videos = { ...videos, ...newVideos };
+            }
+        </script>
+
+        {% if pageScripts %}
+            {{ pageScripts | safe }}
+        {% endif %}
+    </body>
+</html>
