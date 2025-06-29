@@ -450,26 +450,8 @@ function createScrollNotification() {
   scrollNotification.className = "scroll-notification";
   scrollNotification.onclick = scrollToContent;
 
-  // Set content based on page
-  const pageTitle = document.title.toLowerCase();
-  const pageUrl = window.location.pathname.toLowerCase();
-  let notificationText = "Scroll to explore more";
-
-  if (
-    pageTitle.includes("studio") ||
-    pageUrl.includes("studio") ||
-    pageTitle.includes("journey")
-  ) {
-    notificationText = "Scroll to see Jill's transformation";
-  } else if (
-    pageTitle.includes("confidence") ||
-    pageTitle.includes("coaching") ||
-    pageUrl.includes("index")
-  ) {
-    notificationText = "Scroll to discover our services";
-  } else if (pageTitle.includes("client") || pageUrl.includes("client")) {
-    notificationText = "Scroll to see client results";
-  }
+  // Simple universal text for all pages
+  const notificationText = "Scroll to learn more";
 
   scrollNotification.innerHTML = `
         ${notificationText}
@@ -560,23 +542,68 @@ function initializeScrollNotification() {
   }, 8000);
 }
 
-// Hamburger menu functionality
+// Enhanced hamburger menu functionality with dropdown support
 function toggleMenu() {
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.getElementById("navMenu");
 
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
+
+  // Close any open dropdowns when closing menu
+  if (!navMenu.classList.contains("active")) {
+    const dropdowns = document.querySelectorAll(".nav-dropdown");
+    dropdowns.forEach((dropdown) => {
+      dropdown.classList.remove("active");
+    });
+  }
 }
 
-// Close menu when clicking outside
+// Handle dropdown clicks and menu functionality
 document.addEventListener("click", function (event) {
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.getElementById("navMenu");
+  const dropdownToggle = event.target.closest(".dropdown-toggle");
+  const navDropdown = event.target.closest(".nav-dropdown");
 
+  // Handle dropdown toggle clicks
+  if (dropdownToggle && window.innerWidth <= 768) {
+    event.preventDefault();
+    const parentDropdown = dropdownToggle.closest(".nav-dropdown");
+
+    // Close other dropdowns
+    const allDropdowns = document.querySelectorAll(".nav-dropdown");
+    allDropdowns.forEach((dropdown) => {
+      if (dropdown !== parentDropdown) {
+        dropdown.classList.remove("active");
+      }
+    });
+
+    // Toggle current dropdown
+    parentDropdown.classList.toggle("active");
+    return;
+  }
+
+  // Close menu when clicking outside (existing functionality)
   if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
+
+    // Also close dropdowns
+    const dropdowns = document.querySelectorAll(".nav-dropdown");
+    dropdowns.forEach((dropdown) => {
+      dropdown.classList.remove("active");
+    });
+  }
+});
+
+// Close dropdowns when window is resized to desktop
+window.addEventListener("resize", function () {
+  if (window.innerWidth > 768) {
+    const dropdowns = document.querySelectorAll(".nav-dropdown");
+    dropdowns.forEach((dropdown) => {
+      dropdown.classList.remove("active");
+    });
   }
 });
 
