@@ -546,12 +546,17 @@ function initializeScrollNotification() {
 function toggleMenu() {
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.getElementById("navMenu");
+  const body = document.body;
 
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
 
-  // Close any open dropdowns when closing menu
-  if (!navMenu.classList.contains("active")) {
+  // Prevent body scroll when menu is open
+  if (navMenu.classList.contains("active")) {
+    body.classList.add("menu-open");
+  } else {
+    body.classList.remove("menu-open");
+    // Close any open dropdowns when closing menu
     const dropdowns = document.querySelectorAll(".nav-dropdown");
     dropdowns.forEach((dropdown) => {
       dropdown.classList.remove("active");
@@ -564,9 +569,8 @@ document.addEventListener("click", function (event) {
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.getElementById("navMenu");
   const dropdownToggle = event.target.closest(".dropdown-toggle");
-  const navDropdown = event.target.closest(".nav-dropdown");
 
-  // Handle dropdown toggle clicks
+  // Handle dropdown toggle clicks on mobile
   if (dropdownToggle && window.innerWidth <= 768) {
     event.preventDefault();
     const parentDropdown = dropdownToggle.closest(".nav-dropdown");
@@ -584,10 +588,17 @@ document.addEventListener("click", function (event) {
     return;
   }
 
-  // Close menu when clicking outside (existing functionality)
-  if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
+  // Close menu when clicking outside (mobile)
+  if (
+    hamburger &&
+    navMenu &&
+    !hamburger.contains(event.target) &&
+    !navMenu.contains(event.target) &&
+    navMenu.classList.contains("active")
+  ) {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
+    document.body.classList.remove("menu-open");
 
     // Also close dropdowns
     const dropdowns = document.querySelectorAll(".nav-dropdown");
@@ -595,15 +606,87 @@ document.addEventListener("click", function (event) {
       dropdown.classList.remove("active");
     });
   }
+
+  // Close menu when clicking on a regular nav link (mobile)
+  if (
+    event.target.matches(".nav-menu a:not(.dropdown-toggle)") &&
+    window.innerWidth <= 768 &&
+    navMenu &&
+    navMenu.classList.contains("active")
+  ) {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+    document.body.classList.remove("menu-open");
+  }
 });
 
-// Close dropdowns when window is resized to desktop
+// Close dropdowns and menu when window is resized to desktop
 window.addEventListener("resize", function () {
   if (window.innerWidth > 768) {
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.getElementById("navMenu");
     const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+    // Reset mobile menu state
+    if (hamburger) hamburger.classList.remove("active");
+    if (navMenu) navMenu.classList.remove("active");
+    document.body.classList.remove("menu-open");
+
+    // Close all dropdowns
     dropdowns.forEach((dropdown) => {
       dropdown.classList.remove("active");
     });
+  }
+});
+
+// Handle escape key to close mobile menu
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.getElementById("navMenu");
+
+    if (navMenu && navMenu.classList.contains("active")) {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+      document.body.classList.remove("menu-open");
+
+      // Close dropdowns
+      const dropdowns = document.querySelectorAll(".nav-dropdown");
+      dropdowns.forEach((dropdown) => {
+        dropdown.classList.remove("active");
+      });
+    }
+  }
+});
+
+// Smooth scroll for anchor links in mobile menu
+document.addEventListener("click", function (event) {
+  if (event.target.matches('a[href^="#"]')) {
+    event.preventDefault();
+    const targetId = event.target.getAttribute("href").substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      // Close mobile menu if open
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.getElementById("navMenu");
+
+      if (navMenu && navMenu.classList.contains("active")) {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+        document.body.classList.remove("menu-open");
+      }
+
+      // Smooth scroll to target
+      const navHeight = 80;
+      const targetPosition =
+        targetElement.getBoundingClientRect().top + window.pageYOffset;
+
+      window.scrollTo({
+        top: targetPosition - navHeight,
+        behavior: "smooth",
+      });
+    }
   }
 });
 
@@ -621,22 +704,6 @@ function createVideoHTML(videoKey, title, customClass = "") {
     `;
 }
 
-// Initialize everything when DOM is ready
-document.addEventListener("DOMContentLoaded", function () {
-  // Create universal scroll notification
-  createScrollNotification();
-
-  // Initialize scroll functionality
-  initializeScrollNotification();
-
-  // Load video thumbnails
-  loadVideoThumbnails();
-
-  // Small delay to ensure all images are loaded
-  setTimeout(() => {
-    makeImagesClickable();
-  }, 500);
-});
 // Simple URL Query Param Gate for Single Discount Code
 function initDiscountGate() {
   // Get URL parameters
@@ -759,9 +826,31 @@ function addCalScript() {
   document.head.appendChild(script);
 }
 
-// Initialize on page load
+// Initialize everything when DOM is ready
 document.addEventListener("DOMContentLoaded", function () {
-  // Run on hourly/booking pages across any domain (for testing)
+  // Ensure menu starts in correct state
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.getElementById("navMenu");
+
+  if (hamburger) hamburger.classList.remove("active");
+  if (navMenu) navMenu.classList.remove("active");
+  document.body.classList.remove("menu-open");
+
+  // Create universal scroll notification
+  createScrollNotification();
+
+  // Initialize scroll functionality
+  initializeScrollNotification();
+
+  // Load video thumbnails
+  loadVideoThumbnails();
+
+  // Small delay to ensure all images are loaded
+  setTimeout(() => {
+    makeImagesClickable();
+  }, 500);
+
+  // Run discount gate on hourly/booking pages
   if (
     window.location.pathname.includes("/hourly") ||
     document.title.toLowerCase().includes("hourly") ||

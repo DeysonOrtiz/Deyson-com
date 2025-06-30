@@ -228,52 +228,68 @@ body {
   color: #ffffff !important;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .nav-container {
-    padding: 0 16px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .nav-menu {
-    gap: 20px;
-    font-size: 14px;
-  }
-
-  .nav-cta {
-    margin-left: 8px;
-  }
-
-  .cta-nav-button {
-    padding: 12px 26px !important;
-    font-size: 13px;
-  }
-
-  .logo-initials {
-    width: 36px;
-    height: 36px;
-    font-size: 14px;
-    margin-right: 10px;
-  }
-
-  .logo-name {
-    font-size: 16px;
-  }
-
-  .dropdown-menu {
-    min-width: 200px;
-  }
+/* Mobile Controls Container */
+.mobile-controls {
+  display: none;
+  align-items: center;
+  gap: 12px;
 }
 
-@media (max-width: 640px) {
-  .nav-menu {
-    gap: 16px;
-  }
+.mobile-cta-button {
+  background: #000000;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
 
-  .nav-menu li a {
-    font-size: 14px;
-  }
+.mobile-cta-button:hover {
+  background: #333333;
+}
+
+/* Hamburger Menu Button (Hidden by default) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Ensure body doesn't scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
 }
 
 /* Service identifier styling */
@@ -1155,7 +1171,7 @@ body {
 /* Scroll notification styles with enhanced bouncing */
 .scroll-notification {
   position: fixed;
-  top: 800px;
+  bottom: 150px; /* Fixed bottom position for all devices */
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.8);
@@ -1176,7 +1192,7 @@ body {
   height: auto;
   line-height: 1.4;
   animation:
-    fadeInDown 0.6s ease-out,
+    fadeInUp 0.6s ease-out,
     gentleBounce 2s ease-in-out infinite 1s;
 }
 
@@ -1191,8 +1207,78 @@ body {
   background: rgba(0, 0, 0, 0.9);
   transform: translateX(-50%) translateY(-2px);
   animation:
-    fadeInDown 0.6s ease-out,
+    fadeInUp 0.6s ease-out,
     hoverBounce 1s ease-in-out infinite;
+}
+
+.scroll-arrow {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.scroll-notification:not(.hidden) .scroll-arrow {
+  animation: arrowBounce 1.5s ease-in-out infinite;
+}
+
+/* Enhanced scroll notification animations - now consistent for all devices */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes gentleBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  10% {
+    transform: translateX(-50%) translateY(-8px);
+  }
+  30% {
+    transform: translateX(-50%) translateY(-4px);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-2px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-1px);
+  }
+}
+
+@keyframes hoverBounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(-2px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+}
+
+@keyframes arrowBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-1px);
+  }
+} infinite;
 }
 
 .scroll-arrow {
@@ -1264,102 +1350,6 @@ body {
   }
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .logo-initials {
-    width: 36px;
-    height: 36px;
-    font-size: 14px;
-    margin-right: 10px;
-  }
-
-  .logo-name {
-    font-size: 16px;
-  }
-
-  .nav-container {
-    padding: 0 16px;
-  }
-
-  .nav-menu {
-    right: 16px;
-    min-width: 200px;
-  }
-
-  .container {
-    padding: 0 16px;
-  }
-
-  .section-title {
-    font-size: 28px;
-  }
-
-  .service-card {
-    padding: 24px;
-  }
-
-  .benefits-grid,
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .lightbox {
-    padding: 20px;
-  }
-
-  .lightbox-close {
-    top: -45px;
-    right: -5px;
-    font-size: 24px;
-    width: 35px;
-    height: 35px;
-  }
-
-  .lightbox-nav {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  .lightbox-prev {
-    left: 10px;
-  }
-
-  .lightbox-next {
-    right: 10px;
-  }
-
-  .scroll-notification {
-    top: 250px;
-    padding: 10px 20px;
-    font-size: 13px;
-  }
-
-  .image-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .equipment-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .interview-gallery {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Selection styles */
-::selection {
-  background: rgba(0, 0, 0, 0.1);
-}
 /* Discount Banner Styles */
 .discount-banner {
   background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
@@ -1503,30 +1493,6 @@ html {
   }
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .discount-banner {
-    padding: 30px 20px;
-    margin: 30px 0;
-  }
-
-  .discount-title {
-    font-size: 24px;
-  }
-
-  .price-comparison {
-    font-size: 18px;
-  }
-
-  .discounted-price {
-    font-size: 22px;
-  }
-
-  .discount-cta-button {
-    padding: 14px 24px;
-    font-size: 14px;
-  }
-}
 /* Articles Page Styles */
 .articles-header {
   text-align: center;
@@ -1590,21 +1556,6 @@ html {
 
 .article-arrow svg {
   transform: rotate(-90deg);
-}
-
-/* Mobile Responsiveness for Articles */
-@media (max-width: 768px) {
-  .articles-header h1 {
-    font-size: 36px;
-  }
-
-  .article-title {
-    font-size: 16px;
-  }
-
-  .article-link {
-    padding: 20px 0;
-  }
 }
 
 /* Individual Article Post Styles */
@@ -1775,8 +1726,257 @@ html {
   margin-top: 24px;
 }
 
-/* Mobile responsiveness for articles */
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
+  /* Show hamburger and mobile controls */
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-controls {
+    display: flex;
+  }
+
+  /* Hide desktop navigation */
+  .nav-menu {
+    display: none;
+  }
+
+  /* Mobile menu when active */
+  .nav-menu.active {
+    display: flex;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid #f0f0f0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 20px 0;
+    margin: 0;
+    transform: translateY(0);
+    opacity: 1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+
+  /* Mobile menu items */
+  .nav-menu li {
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .nav-menu li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-menu li a {
+    display: block;
+    padding: 16px 24px;
+    font-size: 16px;
+    color: #1a1a1a;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .nav-menu li a:hover {
+    background: #f8f9fa;
+    color: #000000;
+  }
+
+  /* Mobile Dropdown Styles */
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .dropdown-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .nav-dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    position: static;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    min-width: auto;
+    display: none;
+    transform: none;
+  }
+
+  .nav-dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li a {
+    padding: 12px 40px;
+    font-size: 14px;
+    color: #666666;
+    font-weight: 400;
+    border-left: none;
+  }
+
+  .dropdown-menu li a:hover {
+    background: #e5e5e5;
+    color: #1a1a1a;
+    padding-left: 40px;
+  }
+
+  /* Hide the desktop CTA from mobile menu */
+  .nav-menu .nav-cta {
+    display: none;
+  }
+
+  /* Hide desktop dropdown behavior on mobile */
+  .nav-dropdown::after {
+    display: none;
+  }
+
+  .nav-dropdown:hover .dropdown-menu {
+    display: none;
+  }
+
+  .nav-dropdown.active:hover .dropdown-menu {
+    display: block;
+  }
+
+  /* General mobile adjustments */
+  .nav-container {
+    padding: 0 16px;
+  }
+
+  .logo-initials {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+
+  .logo-name {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .service-card {
+    padding: 24px;
+  }
+
+  .benefits-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .lightbox {
+    padding: 20px;
+  }
+
+  .lightbox-close {
+    top: -45px;
+    right: -5px;
+    font-size: 24px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+  }
+
+  .scroll-notification {
+    bottom: 120px; /* Closer to bottom on mobile */
+    padding: 10px 20px;
+    font-size: 13px;
+    max-width: 250px;
+    border-radius: 20px;
+  }
+
+  .scroll-notification.hidden {
+    transform: translateX(-50%) translateY(20px) !important;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .equipment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interview-gallery {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .discount-banner {
+    padding: 30px 20px;
+    margin: 30px 0;
+  }
+
+  .discount-title {
+    font-size: 24px;
+  }
+
+  .price-comparison {
+    font-size: 18px;
+  }
+
+  .discounted-price {
+    font-size: 22px;
+  }
+
+  .discount-cta-button {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+
+  .articles-header h1 {
+    font-size: 36px;
+  }
+
+  .article-title {
+    font-size: 16px;
+  }
+
+  .article-link {
+    padding: 20px 0;
+  }
+
   .article-post {
     padding: 20px 16px;
   }
@@ -1800,4 +2000,49 @@ html {
   .article-post-content h3 {
     font-size: 20px;
   }
+}
+
+/* Enhanced mobile responsiveness for smaller screens */
+@media (max-width: 480px) {
+  .hamburger {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hamburger span {
+    width: 22px;
+    height: 2px;
+  }
+
+  .nav-menu li a {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+
+  .dropdown-menu li a {
+    padding: 10px 36px;
+    font-size: 13px;
+  }
+
+  .mobile-cta-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .scroll-notification {
+    bottom: 100px;
+    padding: 8px 16px;
+    font-size: 12px;
+    max-width: 200px;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styles */
+::selection {
+  background: rgba(0, 0, 0, 0.1);
 }

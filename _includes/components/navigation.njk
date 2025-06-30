@@ -9,7 +9,8 @@
             </a>
         </div>
 
-        <ul class="nav-menu">
+        <!-- Desktop Navigation Menu -->
+        <ul class="nav-menu" id="navMenu">
             <li><a href="/">Confidence Coaching</a></li>
             <li class="nav-dropdown">
                 <a href="#" class="dropdown-toggle">Case Studies <span class="dropdown-arrow">▼</span></a>
@@ -18,11 +19,19 @@
                     <li><a href="/studio-journey/">Jill's Studio Build</a></li>
                 </ul>
             </li>
-
-
             <li class="nav-cta">
-                    <a href="/hourly/" class="cta-nav-button">Book an Hourly Session</a>
-                </li>
+                <a href="/hourly/" class="cta-nav-button">Book a Session</a>
+            </li>
         </ul>
+
+        <!-- Mobile Controls (Button + Hamburger) -->
+        <div class="mobile-controls">
+            <a href="/hourly/" class="mobile-cta-button">Book a Session</a>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </div>
 </nav>
