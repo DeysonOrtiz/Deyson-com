@@ -1,0 +1,6 @@
+# Redirect WordPress URLs (if needed during migration)
+# These will be the 301 redirects from your old WordPress posts to new Eleventy posts
+# The URLs should match exactly
+
+# Example redirects - you'll need to add all your specific post URLs
+/unleashing-the-potential-of-effective-lighting-2/  /unleashing-the-potential-of-effective-lighting/  301

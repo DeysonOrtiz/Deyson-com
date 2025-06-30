@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Deyson Ortiz</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    {% include "components/navigation.njk" %}
+    
+    <main class="container">
+        <nav class="article-nav">
+            <a href="/articles/">← Back to Articles</a>
+        </nav>
+        
+        <article class="article-post">
+            <header class="article-post-header">
+                <h1 class="article-post-title">{{ title }}</h1>
+                <time class="article-post-date">{{ date | dateDisplay }}</time>
+            </header>
+            
+            <div class="article-post-content">
+                {{ content | safe }}
+            </div>
+            
+            <footer class="article-footer">
+                <p>Found this helpful? Let's work together to build your camera confidence.</p>
+                                               utton">Book a Confidence Session</a>
+            </footer>
+        </ar        </ar        </ar        </ar        </ar        </ar        </ar>
+</html>
