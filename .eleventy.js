@@ -1,38 +1,40 @@
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   // Copy static assets
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("images");
-  
+  eleventyConfig.addPassthroughCopy("assets"); // Add this line
+
   // Articles collection (renamed from blog)
-  eleventyConfig.addCollection("articles", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("pages/blog/*/index.md")
+  eleventyConfig.addCollection("articles", function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("pages/blog/*/index.md")
       .sort((a, b) => b.date - a.date);
   });
-  
+
   // Date filter
-  eleventyConfig.addFilter("dateDisplay", function(dateObj) {
-    return new Date(dateObj).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long', 
-      day: 'numeric'
+  eleventyConfig.addFilter("dateDisplay", function (dateObj) {
+    return new Date(dateObj).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   });
-  
+
   // Excerpt filter
-  eleventyConfig.addFilter("excerpt", function(content) {
-    const text = content.replace(/<[^>]*>/g, '');
-    return text.length > 150 ? text.slice(0, 150) + '...' : text;
+  eleventyConfig.addFilter("excerpt", function (content) {
+    const text = content.replace(/<[^>]*>/g, "");
+    return text.length > 150 ? text.slice(0, 150) + "..." : text;
   });
-  
+
   return {
     dir: {
       input: "pages",
       includes: "../_includes",
-      output: "_site"
+      output: "_site",
     },
     templateFormats: ["html", "njk", "md"],
     markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk"
+    htmlTemplateEngine: "njk",
   };
 };
