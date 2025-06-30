@@ -708,7 +708,7 @@ function createVideoHTML(videoKey, title, customClass = "") {
 function initDiscountGate() {
   // Get URL parameters
   const urlParams = new URLSearchParams(window.location.search);
-  const discount = urlParams.get("50off");
+  const discount = urlParams.get("50off-july");
 
   // Check if the discount parameter exists (regardless of value)
   if (discount !== null) {
