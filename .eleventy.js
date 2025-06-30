@@ -4,7 +4,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("assets"); // Add this line
-
+  eleventyConfig.addPassthroughCopy("tools");
   // Articles collection (renamed from blog)
   eleventyConfig.addCollection("articles", function (collectionApi) {
     return collectionApi
