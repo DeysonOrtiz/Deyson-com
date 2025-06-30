@@ -735,6 +735,16 @@ function showDiscountOffer() {
   // Create discount banner
   const discountBanner = document.createElement("div");
   discountBanner.className = "discount-banner";
+  discountBanner.style.cursor = "pointer";
+  discountBanner.setAttribute(
+    "data-cal-link",
+    "deyson/camera-confidence-coaching-50-off",
+  );
+  discountBanner.setAttribute(
+    "data-cal-namespace",
+    "camera-confidence-coaching-50-off",
+  );
+  discountBanner.setAttribute("data-cal-config", '{"layout":"month_view"}');
   discountBanner.innerHTML = `
     <div class="discount-content">
       <div class="discount-badge">50% OFF</div>
@@ -743,11 +753,7 @@ function showDiscountOffer() {
         <span class="original-price">$500</span>
         <span class="discounted-price">$250</span>
       </div>
-      <button
-        class="discount-cta-button"
-        data-cal-link="deyson/camera-confidence-coaching-50-off"
-        data-cal-namespace="camera-confidence-coaching-50-off"
-        data-cal-config='{"layout":"month_view"}'>
+      <button class="discount-cta-button">
         Book Discounted Session - 50% Off
       </button>
       <p class="urgency-text">Limited time offer - Book now to secure your discount!</p>
