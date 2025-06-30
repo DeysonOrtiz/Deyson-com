@@ -708,10 +708,10 @@ function createVideoHTML(videoKey, title, customClass = "") {
 function initDiscountGate() {
   // Get URL parameters
   const urlParams = new URLSearchParams(window.location.search);
-  const code = urlParams.get("code");
+  const discount = urlParams.get("50off");
 
-  // Check if the discount code is valid
-  if (code === "50off") {
+  // Check if the discount parameter exists (regardless of value)
+  if (discount !== null) {
     showDiscountOffer();
   }
 }
