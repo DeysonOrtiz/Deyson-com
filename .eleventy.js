@@ -6,12 +6,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("tools");
 
-  // Copy article images to match the article structure
+  // Copy article images to match the NEW structure (no /articles/ prefix)
   eleventyConfig.addPassthroughCopy({
-    "pages/articles/re-discover-your-art/images":
-      "articles/re-discover-your-art/images",
+    "pages/articles/re-discover-your-art/images": "re-discover-your-art/images", // Changed: removed "articles/"
     "pages/articles/the-power-of-using-templates/images":
-      "articles/the-power-of-using-templates/images",
+      "the-power-of-using-templates/images", // Changed: removed "articles/"
   });
 
   // Articles collection (COMBINED - only one collection definition)

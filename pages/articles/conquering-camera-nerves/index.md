@@ -2,7 +2,7 @@
 title: "Conquering Camera Nerves: Unleashing Your Authenticity in Video Recordings"
 layout: layouts/article.njk
 date: 2023-06-13
-categories: 
+categories:
   - "blog"
 ---
 
@@ -30,29 +30,29 @@ Let us explore some valuable tips to overcome our nervousness and bring out our 
 
 - Record conversations and edit out the other person: Capture online conversations with someone you enjoy talking to, and later edit out their part. This helps you ease into recording solo and reduces self-consciousness.
 
-- Take breaks during recording: If you feel overwhelmed or make mistakes, take short breaks to breathe and gather your thoughts during recording. Later, edit out these breaks using available [automation tools](https://deyson.com/streamline-your-video-creation/) or during the editing process.
+- Take breaks during recording: If you feel overwhelmed or make mistakes, take short breaks to breathe and gather your thoughts during recording. Later, edit out these breaks using available [automation tools](/streamline-your-video-creation/) or during the editing process.
 
 - Record multiple videos in one session: Instead of recording one video per day, try recording multiple videos in a single session. This minimizes the stress of daily recording and gives you a sense of accomplishment.
 
 - Remember your message is important: Remind yourself that people are more interested in your message than any nervousness or minor mistakes. Focus on delivering your content passionately and authentically.
 
-- Keep your recordings short and to the point: Do not feel obligated to adhere to specific time constraints dictated by others. Share your story and make your videos as long or as short as you feel comfortable.  
-      
-    The most important aspect is sharing your message effectively.  
+- Keep your recordings short and to the point: Do not feel obligated to adhere to specific time constraints dictated by others. Share your story and make your videos as long or as short as you feel comfortable.
+
+    The most important aspect is sharing your message effectively.
     Remember, it is about the quality of the content, not the duration.
 
 - Consider hiring a professional: If resources permit, hire a professional videographer or video editor to assist with lighting, camera angles, and overall presentation. Their expertise can help you look your best on camera.
 
-- Share any nervous ticks or habits: If you have any nervous ticks or habits that come across on camera, do not be afraid to share them. Let your audience know the difficulties you are experiencing.  
-      
-    You would be amazed at how many kind-hearted individuals are out there who would support and cheer you on, especially when you're honest and show your human side.  
-      
+- Share any nervous ticks or habits: If you have any nervous ticks or habits that come across on camera, do not be afraid to share them. Let your audience know the difficulties you are experiencing.
+
+    You would be amazed at how many kind-hearted individuals are out there who would support and cheer you on, especially when you're honest and show your human side.
+
     By being open and vulnerable about your challenges, you create a genuine connection with your audience. They will appreciate your honesty and relate to your journey, leading to a stronger and more supportive community around your content.
 
 By incorporating these tips, you can overcome your nervousness and enhance the quality of your video recordings.
 
-Remember to practice consistently and gradually build your confidence.  
-  
+Remember to practice consistently and gradually build your confidence.
+
 Embarking on the journey of video storytelling can be both exciting and nerve-wracking.
 
 However, by using these strategies and embracing your authenticity, you have the power to transcend your nervousness and create impactful and captivating video content.
