@@ -2,30 +2,31 @@
 title: "Mastering Stand-Up Videos: The Power of a Teleprompter"
 layout: layouts/article.njk
 date: 2023-06-14
-categories: 
+categories:
   - "blog"
 ---
 
-When it comes to recording stand-up videos, I have a fantastic tip that can greatly enhance your performance. 
+I have a tip for enhancing your performance when recording stand-up videos if you have difficulty remembering what to say.
 
-Instead of relying solely on your memory or reading directly from a script, I recommend using a helpful app called [Imaginary Teleprompter](https://imaginary.tech/teleprompter/) or any teleprompter app you prefer.
+Typically, I recommend against using teleprompters. But there are times when they can be helpful, especially if you are getting started.
 
 However, the key is not to use the teleprompter for word-for-word reading, as that can make us sound robotic. 
 
-Instead, I suggest using it for reading notes. 
+Instead, I suggest using it for keywords to trigger our memory.
 
-Since the teleprompter scrolls, we can quickly glance down and stay on topic without losing our flow.
+Since the teleprompter scrolls, we can use keywords to stay on topic without losing our flow.
 
-Here is how it works: Familiarize yourself with the script in sections rather than trying to memorize every single word. 
+Remember, your videos should aim to discuss topics you know well. It is better if you can speak from the heart.
 
-Get a grasp of the overall idea and structure. 
+Find topics that you are passionate about and that you can speak about with confidence. Think of conversations that you have had with friends or family members.
 
-If you happen to forget the next part while recording, simply pause, take a breath, and refer to the teleprompter to refresh your memory.
+The goal of keywords is to stay on topic without losing our flow. Think of keywords that you can use to guide your conversation.
+
+If you go blank, pause, take a breath, and refer to the teleprompter to refresh your memory.
 
 Do not worry about the breaks and pauses you take during recording. 
 
-These can be easily edited out manually or automated with the help of editing tools. 
+These can be easily edited out manually.
+Or keep them, as there is nothing wrong with being human.
 
-You can also employ push cuts, a technique where you create the illusion of a second camera angle by scaling up the video slightly.
-
-By taking your time, strategically editing out any breaks, and using push cuts, you can achieve a seamless and professional-looking video.
+The important thing is to speak with passion and to have fun!
