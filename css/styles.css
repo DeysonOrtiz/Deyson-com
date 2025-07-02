@@ -2050,3 +2050,22 @@ html {
 ::selection {
   background: rgba(0, 0, 0, 0.1);
 }
+
+.vimeo-lazy-wrapper:hover .vimeo-play-button {
+  background: rgba(0,0,0,0.9);
+  transform: translate(-50%,-50%) scale(1.1);
+}
+
+.vimeo-thumbnail {
+  transition: opacity 0.3s ease;
+}
+
+.vimeo-lazy-wrapper:hover .vimeo-thumbnail {
+  opacity: 0.8;
+}
+img[src*="vumbnail.com"] {
+    margin: 1em 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+}

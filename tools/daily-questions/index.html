@@ -1,782 +1,1195 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daily Question Tracker - Identity Transformation</title>
-    <meta name="description" content="Track your identity transformation with daily questions">
-    <meta name="theme-color" content="#000000">
-    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkRhaWx5IFF1ZXN0aW9uIFRyYWNrZXIiLAogICJzaG9ydF9uYW1lIjogIklkZW50aXR5IFRyYWNrZXIiLAogICJkZXNjcmlwdGlvbiI6ICJUcmFjayB5b3VyIGlkZW50aXR5IHRyYW5zZm9ybWF0aW9uIHdpdGggZGFpbHkgcXVlc3Rpb25zIiwKICAic3RhcnRfdXJsIjogIi8iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmZmZmZmYiLAogICJ0aGVtZV9jb2xvciI6ICIjMDAwMDAwIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M000UnZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXhNREFnTVRBd0lqNDhjbVZqZENCM2FXUjBhRDBpTVRBd0lpQm9aV2xuYUhROUlqRXdNQ0lpSUdacGJHczlJaU13TURBd01EQWlMejQ4ZEdWNGRDQjRQU0kxTUNJZ2VUMGlOakFpSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaUlHWnBiR3c5SW1kc2IySmhiQ2duZDJocGRHVW5JeWNnWm05dWRDMXphWHBsUFNJME1DSWlQand2ZEdWNGRENDhMM04yWno0PSIsCiAgICAgICJzaXplcyI6ICIxMDB4MTAwIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M000UnZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXhNREFnTVRBd0lqNDhjbVZqZENCM2FXUjBhRDBpTVRBd0lpQm9aV2xuYUhROUlqRXdNQ0lpSUdacGJHczlJaU13TURBd01EQWlMejQ4ZEdWNGRDQjRQU0kxTUNJZ2VUMGlOakFpSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaUlHWnBiR3c5SW1kc2IySmhiQ2duZDJocGRHVW5JeWNnWm05dWRDMXphWHBsUFNJME1DSWlQand2ZEdWNGRENDhMM04yWno0PSIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M040UnZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXhNREFnTVRBd0lqNDhjbVZqZENCM2FXUjBhRDBpTVRBd0lpQm9aV2xuYUhROUlqRXdNQ0lpSUdacGJHczlJaU13TURBd01EQWlMejQ4ZEdWNGRDQjRQU0kxTUNJZ2VUMGlOakFpSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaUlHWnBiR3c5SW1kc2IySmhiQ2duZDJocGRHVW5JeWNnWm05dWRDMXphWHBsUFNJME1DSWlQand2ZEdWNGRENDhMM04yWno0PSIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0KICBdCn0=">
-    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwMDAwMCIvPjx0ZXh0IHg9IjUwIiB5PSI2MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iZ2xvYmFsKCd3aGl0ZScpIiBmb250LXNpemU9IjQwIj4/PC90ZXh0Pjwvc3ZnPg==">
+    <meta
+      name="description"
+      content="Track your identity transformation with daily questions"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link
+      rel="manifest"
+      href="data:application/json;base64,ewogICJuYW1lIjogIkRhaWx5IFF1ZXN0aW9uIFRyYWNrZXIiLAogICJzaG9ydF9uYW1lIjogIklkZW50aXR5IFRyYWNrZXIiLAogICJkZXNjcmlwdGlvbiI6ICJUcmFjayB5b3VyIGlkZW50aXR5IHRyYW5zZm9ybWF0aW9uIHdpdGggZGFpbHkgcXVlc3Rpb25zIiwKICAic3RhcnRfdXJsIjogIi8iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmZmZmZmYiLAogICJ0aGVtZV9jb2xvciI6ICIjMDAwMDAwIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M000UnZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXhNREFnTVRBd0lqNDhjbVZqZENCM2FXUjBhRDBpTVRBd0lpQm9aV2xuYUhROUlqRXdNQ0lpSUdacGJHczlJaU13TURBd01EQWlMejQ4ZEdWNGRDQjRQU0kxTUNJZ2VUMGlOakFpSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaUlHWnBiR3c5SW1kc2IySmhiQ2duZDJocGRHVW5JeWNnWm05dWRDMXphWHBsUFNJME1DSWlQand2ZEdWNGRENDhMM04yWno0PSIsCiAgICAgICJzaXplcyI6ICIxMDB4MTAwIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M000UnZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXhNREFnTVRBd0lqNDhjbVZqZENCM2FXUjBhRDBpTVRBd0lpQm9aV2xuYUhROUlqRXdNQ0lpSUdacGJHczlJaU13TURBd01EQWlMejQ4ZEdWNGRDQjRQU0kxTUNJZ2VUMGlOakFpSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaUlHWnBiR3c5SW1kc2IySmhiQ2duZDJocGRHVW5JeWNnWm05dWRDMXphWHBsUFNJME1DSWlQand2ZEdWNGRENDhMM04yWno0PSIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M040UnZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXhNREFnTVRBd0lqNDhjbVZqZENCM2FXUjBhRDBpTVRBd0lpQm9aV2xuYUhROUlqRXdNQ0lpSUdacGJHczlJaU13TURBd01EQWlMejQ4ZEdWNGRDQjRQU0kxTUNJZ2VUMGlOakFpSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaUlHWnBiR3c5SW1kc2IySmhiQ2duZDJocGRHVW5JeWNnWm05dWRDMXphWHBsUFNJME1DSWlQand2ZEdWNGRENDhMM04yWno0PSIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0KICBdCn0="
+    />
+    <link
+      rel="apple-touch-icon"
+      href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwMDAwMCIvPjx0ZXh0IHg9IjUwIiB5PSI2MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iZ2xvYmFsKCd3aGl0ZScpIiBmb250LXNpemU9IjQwIj4/PC90ZXh0Pjwvc3ZnPg=="
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #ffffff;
-            color: #000000;
-            line-height: 1.6;
-            font-size: 16px;
-        }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background: #ffffff;
+        color: #000000;
+        line-height: 1.6;
+        font-size: 16px;
+        padding-bottom: 80px;
+      }
 
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border-top: 1px solid #e5e5e5;
+        padding: 15px 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #666666;
+        z-index: 100;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .header {
+        position: relative;
+        margin-bottom: 40px;
+      }
+
+      .config-toggle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: none;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        color: #000000;
+        transition: all 0.2s ease;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .config-toggle:hover {
+        background: rgba(0, 0, 0, 0.1);
+        transform: none;
+      }
+
+      .config-toggle svg {
+        width: 24px;
+        height: 24px;
+        fill: #000000;
+        transition: fill 0.2s ease;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        color: #000000;
+        margin-bottom: 20px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-text {
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        color: #666666;
+        margin-bottom: 40px;
+        max-width: 800px;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+
+      .privacy-subtitle {
+        font-size: 0.9rem;
+        color: #666666;
+        margin-bottom: 40px;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+
+      .section {
+        margin-bottom: 80px;
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 60px;
+      }
+
+      .section:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .section h2 {
+        font-size: clamp(1.8rem, 3vw, 2.5rem);
+        font-weight: 600;
+        color: #000000;
+        margin-bottom: 30px;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+
+      .form-group {
+        margin-bottom: 30px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 12px;
+        color: #000000;
+        font-weight: 500;
+        font-size: 1.1rem;
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 16px 20px;
+        border: 2px solid #000000;
+        border-radius: 0;
+        font-size: 16px;
+        font-family: inherit;
+        background: #ffffff;
+        color: #000000;
+        transition: all 0.2s ease;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+        border-color: #000000;
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+        line-height: 1.5;
+      }
+
+      button {
+        background: #000000;
+        color: #ffffff;
+        border: none;
+        padding: 16px 32px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-family: inherit;
+      }
+
+      button:hover {
+        background: #333333;
+        transform: translateY(-1px);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      button.secondary {
+        background: transparent;
+        color: #000000;
+        border: 2px solid #000000;
+      }
+
+      button.secondary:hover {
+        background: #000000;
+        color: #ffffff;
+      }
+
+      .question-display {
+        background: #f8f8f8;
+        padding: 40px;
+        margin: 40px 0;
+        border-left: 4px solid #000000;
+      }
+
+      .question-display h3 {
+        color: #000000;
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .question-display p {
+        color: #000000;
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+
+      .answers-list {
+        max-height: 500px;
+        overflow-y: auto;
+        border: 2px solid #000000;
+        background: #ffffff;
+      }
+
+      .answer-item {
+        padding: 30px;
+        border-bottom: 1px solid #e5e5e5;
+        transition: background-color 0.2s ease;
+      }
+
+      .answer-item:hover {
+        background: #f8f8f8;
+      }
+
+      .answer-item:last-child {
+        border-bottom: none;
+      }
+
+      .answer-date {
+        font-weight: 600;
+        color: #000000;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+      }
+
+      .answer-text {
+        color: #333333;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin-bottom: 15px;
+      }
+
+      .status {
+        padding: 20px 30px;
+        margin: 30px 0;
+        font-weight: 500;
+        font-size: 1.1rem;
+        border: 2px solid;
+        text-align: center;
+      }
+
+      .status.success {
+        background: #f0f8f0;
+        color: #2d5016;
+        border-color: #2d5016;
+      }
+
+      .status.info {
+        background: #f0f0f8;
+        color: #1a1a2e;
+        border-color: #1a1a2e;
+      }
+
+      .time-display {
+        font-family: "Courier New", monospace;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #000000;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+      }
+
+      .stat-card {
+        text-align: center;
+        padding: 30px;
+        border: 2px solid #000000;
+        background: #ffffff;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #000000;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .stat-label {
+        font-size: 1rem;
+        color: #666666;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 500;
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        color: #666666;
+        font-size: 1.2rem;
+      }
+
+      .empty-state::before {
+        content: "→";
+        display: block;
+        font-size: 4rem;
+        font-weight: 700;
+        color: #000000;
+        margin-bottom: 20px;
+      }
+
+      .answer-preview {
+        background: #f8f8f8;
+        padding: 25px;
+        margin: 20px 0;
+        border-left: 4px solid #2d5016;
+      }
+
+      .answer-preview h4 {
+        color: #000000;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .answer-preview p {
+        color: #333333;
+        line-height: 1.5;
+        margin-bottom: 15px;
+      }
+
+      .goals-preview {
+        background: #f8f8f8;
+        border: 2px solid #666666;
+        padding: 30px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+
+      .goals-preview h4 {
+        color: #000000;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .goals-preview p {
+        color: #000000;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+      }
+
+      .goals-preview .goal-section {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #cccccc;
+      }
+
+      .goals-preview .goal-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      @media (max-width: 768px) {
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
+          padding: 20px 15px;
         }
 
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            color: #000000;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
+        .header {
+          margin-bottom: 60px;
+          padding-top: 60px;
         }
 
-        .hero-text {
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-            color: #666666;
-            margin-bottom: 40px;
-            max-width: 800px;
-            font-weight: 400;
-            line-height: 1.4;
+        .config-toggle {
+          top: 10px;
+          right: 10px;
         }
 
-        .privacy-notice {
-            background: #f0f8f0;
-            border: 2px solid #2d5016;
-            color: #2d5016;
-            padding: 20px;
-            margin-bottom: 40px;
-            font-size: 1rem;
-            font-weight: 500;
-            border-radius: 4px;
-        }
-
-        .privacy-notice .icon {
-            display: inline-block;
-            margin-right: 8px;
-            font-weight: 700;
+        #configSection {
+          right: 10px !important;
+          top: 70px !important;
+          width: calc(100vw - 40px) !important;
+          max-width: 350px !important;
         }
 
         .section {
-            margin-bottom: 80px;
-            border-bottom: 1px solid #e5e5e5;
-            padding-bottom: 60px;
-        }
-
-        .section:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .section h2 {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 600;
-            color: #000000;
-            margin-bottom: 30px;
-            line-height: 1.2;
-            letter-spacing: -0.01em;
-        }
-
-        .toggle-header {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-
-        .toggle-header h2 {
-            margin: 0;
-            margin-right: 15px;
-        }
-
-        .toggle-arrow {
-            font-size: 1.5rem;
-            font-weight: 700;
-            transition: transform 0.2s ease;
-            color: #666666;
-        }
-
-        .toggle-arrow.expanded {
-            transform: rotate(90deg);
-        }
-
-        .collapsible-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .collapsible-content.expanded {
-            max-height: 500px;
-        }
-
-        .form-group {
-            margin-bottom: 30px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 12px;
-            color: #000000;
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-
-        input, textarea, select {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid #000000;
-            border-radius: 0;
-            font-size: 16px;
-            font-family: inherit;
-            background: #ffffff;
-            color: #000000;
-            transition: all 0.2s ease;
-        }
-
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: #000000;
-            box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-            line-height: 1.5;
+          margin-bottom: 50px;
+          padding-bottom: 40px;
         }
 
         button {
-            background: #000000;
-            color: #ffffff;
-            border: none;
-            padding: 16px 32px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-right: 15px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-family: inherit;
-        }
-
-        button:hover {
-            background: #333333;
-            transform: translateY(-1px);
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
-
-        button.secondary {
-            background: transparent;
-            color: #000000;
-            border: 2px solid #000000;
-        }
-
-        button.secondary:hover {
-            background: #000000;
-            color: #ffffff;
+          width: 100%;
+          margin-right: 0;
         }
 
         .question-display {
-            background: #f8f8f8;
-            padding: 40px;
-            margin: 40px 0;
-            border-left: 4px solid #000000;
-        }
-
-        .question-display h3 {
-            color: #000000;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        .question-display p {
-            color: #000000;
-            font-size: 1.2rem;
-            font-weight: 400;
-            line-height: 1.4;
-        }
-
-        .answers-list {
-            max-height: 500px;
-            overflow-y: auto;
-            border: 2px solid #000000;
-            background: #ffffff;
+          padding: 25px;
         }
 
         .answer-item {
-            padding: 30px;
-            border-bottom: 1px solid #e5e5e5;
-            transition: background-color 0.2s ease;
+          padding: 20px;
         }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>The One Decision</h1>
+        <button
+          class="config-toggle"
+          onclick="toggleSection('configSection')"
+          title="Settings"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11.03L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.79,8.95 21.73,9.22 21.54,9.37L19.43,11.03L19.5,12L19.43,12.97L21.54,14.63C21.73,14.78 21.79,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.04 19.05,18.95L16.56,17.95C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10M11.25,4L10.88,6.61C9.68,6.86 8.62,7.5 7.85,8.39L5.44,7.35L4.69,8.65L6.8,10.2C6.4,11.37 6.4,12.64 6.8,13.8L4.68,15.36L5.43,16.66L7.86,15.62C8.63,16.5 9.68,17.14 10.87,17.38L11.24,20H12.76L13.13,17.39C14.32,17.14 15.37,16.5 16.14,15.62L18.57,16.66L19.32,15.36L17.2,13.81C17.6,12.64 17.6,11.37 17.2,10.2L19.31,8.65L18.56,7.35L16.15,8.39C15.38,7.5 14.32,6.86 13.12,6.62L12.75,4H11.25Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <p class="hero-text">
+        Track your thoughts, build your habits, own your narrative.<br />Stop
+        chasing answers and start creating them!
+      </p>
 
-        .answer-item:hover {
-            background: #f8f8f8;
-        }
+      <p class="privacy-subtitle">
+        Your answers are stored locally on your device only.<br />
+        No data is sent to any server or shared with anyone.
+      </p>
 
-        .answer-item:last-child {
-            border-bottom: none;
-        }
+      <!-- Settings Panel -->
+      <div
+        id="configSection"
+        style="
+          display: none;
+          position: fixed;
+          top: 60px;
+          right: 120px;
+          background: white;
+          border: 2px solid #000;
+          padding: 30px;
+          width: 320px;
+          z-index: 1000;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        "
+      >
+        <h2 style="margin-bottom: 30px; color: inherit">Settings</h2>
+        <div class="form-group">
+          <label for="reminderTime" style="color: inherit"
+            >Daily Reminder Time</label
+          >
+          <input type="time" id="reminderTime" value="17:00" />
+        </div>
+        <button onclick="saveSettings()">Save Settings</button>
+        <button class="secondary" onclick="testNotification()">
+          Test Alert
+        </button>
+        <button class="secondary" onclick="showInstallInstructions()">
+          Install as App
+        </button>
+        <button
+          class="secondary"
+          onclick="toggleSection('configSection')"
+          style="margin-top: 20px"
+        >
+          Close Settings
+        </button>
+      </div>
 
-        .answer-date {
-            font-weight: 600;
-            color: #000000;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-        }
-
-        .answer-text {
-            color: #333333;
+      <div class="section">
+        <h2>Your Vision</h2>
+        <p
+          style="
+            color: #666666;
+            margin-bottom: 30px;
             font-size: 1.1rem;
             line-height: 1.5;
-            margin-bottom: 15px;
-        }
+          "
+          class="vision-description"
+        >
+          Define who you want to become. This will guide your daily reflections
+          and keep you focused on what matters most.
+        </p>
 
-        .status {
-            padding: 20px 30px;
-            margin: 30px 0;
-            font-weight: 500;
-            font-size: 1.1rem;
-            border: 2px solid;
-            text-align: center;
-        }
+        <div id="goalsForm">
+          <div class="form-group">
+            <label
+              for="longTermGoal"
+              style="font-size: 1.2rem; font-weight: 600"
+            >
+              1. In a perfect scenario, in 3 years, I will be _________
+            </label>
+            <textarea
+              id="longTermGoal"
+              placeholder="Describe who you want to become in 3 years..."
+              style="min-height: 100px"
+            ></textarea>
+          </div>
 
-        .status.success {
-            background: #f0f8f0;
-            color: #2d5016;
-            border-color: #2d5016;
-        }
+          <div
+            style="
+              margin: 40px 0;
+              padding: 25px;
+              background: #f8f8f8;
+              border-left: 4px solid #666666;
+            "
+          >
+            <p style="margin-bottom: 20px; font-weight: 500; color: #000000">
+              If you can't decide WHO you want to become, if it feels hard, try
+              this:
+            </p>
 
-        .status.info {
-            background: #f0f0f8;
-            color: #1a1a2e;
-            border-color: #1a1a2e;
-        }
-
-        .time-display {
-            font-family: 'Courier New', monospace;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #000000;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 30px;
-            border: 2px solid #000000;
-            background: #ffffff;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #000000;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: #666666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 500;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #666666;
-            font-size: 1.2rem;
-        }
-
-        .empty-state::before {
-            content: "→";
-            display: block;
-            font-size: 4rem;
-            font-weight: 700;
-            color: #000000;
-            margin-bottom: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 15px;
-            }
-            
-            .section {
-                margin-bottom: 50px;
-                padding-bottom: 40px;
-            }
-            
-            button {
-                width: 100%;
-                margin-right: 0;
-            }
-            
-            .question-display {
-                padding: 25px;
-            }
-            
-            .answer-item {
-                padding: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Daily Questions</h1>
-        <p class="hero-text">Track your thoughts, build your habits, own your narrative. Stop chasing answers — start creating them.</p>
-        
-        <div class="privacy-notice">
-            <span class="icon">🔒</span>Your answers are stored locally on your device only. No data is sent to any server or shared with anyone.
-        </div>
-        
-        <div class="section">
-            <div class="toggle-header" onclick="toggleSection('configSection')">
-                <h2>Configure</h2>
-                <span class="toggle-arrow" id="configToggle">→</span>
-            </div>
-            <div class="collapsible-content" id="configSection">
-                <div class="form-group">
-                    <label for="reminderTime">Daily Reminder Time</label>
-                    <input type="time" id="reminderTime" value="17:00">
-                </div>
-                <button onclick="saveSettings()">Save Settings</button>
-                <button class="secondary" onclick="testNotification()">Test Alert</button>
-                <button class="secondary" onclick="showInstallInstructions()">Install as App</button>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Today</h2>
-            <div class="question-display" id="questionDisplay">
-                <h3 id="todayDate"></h3>
-                <p>Did I act like my new identity today?<br>What did I do to prove it?</p>
-            </div>
             <div class="form-group">
-                <label for="question1Answer">Did I act like my new identity today?</label>
-                <textarea id="question1Answer" placeholder="Yes/No and how..."></textarea>
+              <label for="whatGoal" style="font-weight: 500">
+                2. Think about WHAT you want to do that excites you or helps
+                people:
+              </label>
+              <textarea
+                id="whatGoal"
+                placeholder="What activities, work, or contributions excite you?"
+              ></textarea>
             </div>
+
+            <div
+              style="
+                text-align: center;
+                margin: 20px 0;
+                font-weight: 600;
+                color: #666666;
+              "
+            >
+              OR
+            </div>
+
             <div class="form-group">
-                <label for="question2Answer">What did I do to prove it?</label>
-                <textarea id="question2Answer" placeholder="Specific actions and evidence..."></textarea>
+              <label for="howGoal" style="font-weight: 500">
+                3. Think about HOW you'd like to live your life from now on:
+              </label>
+              <textarea
+                id="howGoal"
+                placeholder="What lifestyle, habits, or daily patterns do you want?"
+              ></textarea>
             </div>
-            <button onclick="saveAnswer()">Save Answers</button>
+          </div>
+
+          <button onclick="saveGoals()">Save My Vision</button>
         </div>
 
-        <div class="section">
-            <h2>Progress</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" id="totalAnswers">0</div>
-                    <div class="stat-label">Total Answers</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="currentStreak">0</div>
-                    <div class="stat-label">Day Streak</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="thisMonth">0</div>
-                    <div class="stat-label">This Month</div>
-                </div>
-            </div>
+        <div id="goalsDisplay" style="display: none">
+          <div id="goalsPreview"></div>
+          <button class="secondary" onclick="editGoals()">
+            Update My Vision
+          </button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Today</h2>
+        <div class="question-display" id="questionDisplay">
+          <h3 id="todayDate"></h3>
+          <p>
+            Did I act like my new identity today?<br />What did I do to prove
+            it?
+          </p>
         </div>
 
-        <div class="section">
-            <h2>History</h2>
-            <div class="answers-list" id="answersList">
-                <div class="empty-state">
-                    Start your journey. Answer today's question.
-                </div>
-            </div>
-            <button onclick="exportToCSV()">Export Data</button>
-            <button class="secondary" onclick="showReportView()">View Report</button>
-            <button class="secondary" onclick="clearAllData()">Clear All</button>
+        <div id="answerForm">
+          <div class="form-group">
+            <label for="question1Answer"
+              >Did I act like my new identity today?</label
+            >
+            <textarea
+              id="question1Answer"
+              placeholder="Yes/No and how..."
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="question2Answer">What did I do to prove it?</label>
+            <textarea
+              id="question2Answer"
+              placeholder="Specific actions and evidence..."
+            ></textarea>
+          </div>
+          <button onclick="saveAnswer()">Save Answers</button>
         </div>
 
-        <div class="section">
-            <h2>System</h2>
-            <div id="notificationStatus" class="status info">
-                Next reminder: <span class="time-display" id="nextReminder">Not set</span>
-            </div>
+        <div id="answeredToday" style="display: none">
+          <div class="status success">
+            ✓ You've answered today's questions! Come back tomorrow for new
+            reflections.
+          </div>
+          <div id="todayAnswerPreview"></div>
+          <button class="secondary" onclick="editTodayAnswer()">
+            Edit Today's Answer
+          </button>
         </div>
+      </div>
+
+      <div class="section">
+        <h2>Progress</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" id="totalAnswers">0</div>
+            <div class="stat-label">Total Answers</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="currentStreak">0</div>
+            <div class="stat-label">Day Streak</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="thisMonth">0</div>
+            <div class="stat-label">This Month</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>History</h2>
+        <div class="answers-list" id="answersList">
+          <div class="empty-state">
+            Start your journey. Answer today's question.
+          </div>
+        </div>
+        <button onclick="exportToCSV()">Export Data</button>
+        <button class="secondary" onclick="showReportView()">
+          View Report
+        </button>
+        <button class="secondary" onclick="clearAllData()">Clear All</button>
+      </div>
+
+      <div class="section">
+        <h2>System</h2>
+        <div id="notificationStatus" class="status info">
+          Next reminder:
+          <span class="time-display" id="nextReminder">Not set</span>
+        </div>
+      </div>
     </div>
 
+    <div class="footer">Daily Questions - Inspired by Marko Phann</div>
+
     <script>
-        let settings = { reminderTime: "17:00" };
-        let answers = [];
-        let notificationPermission = false;
+      let settings = { reminderTime: "17:00" };
+      let answers = [];
+      let goals = { longTerm: "", what: "", how: "" };
+      let notificationPermission = false;
 
-        document.addEventListener('DOMContentLoaded', function() {
-            loadData();
-            updateDisplay();
-            setupNotificationPermission();
-            scheduleNextReminder();
-            updateTodayDate();
-            updateStats();
+      document.addEventListener("DOMContentLoaded", function () {
+        loadData();
+        updateDisplay();
+        setupNotificationPermission();
+        scheduleNextReminder();
+        updateTodayDate();
+        updateStats();
+      });
+
+      function toggleSection(sectionId) {
+        const content = document.getElementById(sectionId);
+
+        if (sectionId === "configSection") {
+          // Special handling for config section with cog wheel - toggle visibility
+          if (
+            content.style.display === "none" ||
+            content.style.display === ""
+          ) {
+            content.style.display = "block";
+          } else {
+            content.style.display = "none";
+          }
+        }
+      }
+
+      function updateTodayDate() {
+        const today = new Date().toLocaleDateString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
         });
+        document.getElementById("todayDate").textContent = today.toUpperCase();
+      }
 
-        function toggleSection(sectionId) {
-            const content = document.getElementById(sectionId);
-            const arrow = document.getElementById(sectionId.replace('Section', 'Toggle'));
-            
-            content.classList.toggle('expanded');
-            arrow.classList.toggle('expanded');
+      function loadData() {
+        try {
+          const savedSettings = localStorage.getItem("dailyQuestionSettings");
+          if (savedSettings) settings = JSON.parse(savedSettings);
+
+          const savedAnswers = localStorage.getItem("dailyQuestionAnswers");
+          if (savedAnswers) answers = JSON.parse(savedAnswers);
+
+          const savedGoals = localStorage.getItem("dailyQuestionGoals");
+          if (savedGoals) goals = JSON.parse(savedGoals);
+        } catch (e) {
+          console.error("Error loading data:", e);
+        }
+      }
+
+      function saveData() {
+        try {
+          localStorage.setItem(
+            "dailyQuestionSettings",
+            JSON.stringify(settings),
+          );
+          localStorage.setItem("dailyQuestionAnswers", JSON.stringify(answers));
+          localStorage.setItem("dailyQuestionGoals", JSON.stringify(goals));
+        } catch (e) {
+          console.error("Error saving data:", e);
+        }
+      }
+
+      function updateDisplay() {
+        document.getElementById("reminderTime").value = settings.reminderTime;
+
+        // Update goals display
+        if (goals.longTerm || goals.what || goals.how) {
+          document.getElementById("goalsForm").style.display = "none";
+          document.getElementById("goalsDisplay").style.display = "block";
+          updateGoalsPreview();
+        } else {
+          document.getElementById("goalsForm").style.display = "block";
+          document.getElementById("goalsDisplay").style.display = "none";
+          document.getElementById("longTermGoal").value = "";
+          document.getElementById("whatGoal").value = "";
+          document.getElementById("howGoal").value = "";
         }
 
-        function updateTodayDate() {
-            const today = new Date().toLocaleDateString('en-US', { 
-                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
-            });
-            document.getElementById('todayDate').textContent = today.toUpperCase();
+        // Update today's questions display
+        const today = new Date().toDateString();
+        const todayAnswer = answers.find(
+          (a) => new Date(a.date).toDateString() === today,
+        );
+
+        if (todayAnswer && (todayAnswer.answer1 || todayAnswer.answer2)) {
+          // Show answered state
+          document.getElementById("answerForm").style.display = "none";
+          document.getElementById("answeredToday").style.display = "block";
+          updateTodayAnswerPreview(todayAnswer);
+        } else {
+          // Show input form
+          document.getElementById("answerForm").style.display = "block";
+          document.getElementById("answeredToday").style.display = "none";
+          document.getElementById("question1Answer").value = "";
+          document.getElementById("question2Answer").value = "";
         }
 
-        function loadData() {
-            try {
-                const savedSettings = localStorage.getItem('dailyQuestionSettings');
-                if (savedSettings) settings = JSON.parse(savedSettings);
-                
-                const savedAnswers = localStorage.getItem('dailyQuestionAnswers');
-                if (savedAnswers) answers = JSON.parse(savedAnswers);
-            } catch (e) {
-                console.error('Error loading data:', e);
-            }
+        updateAnswersList();
+        updateNextReminderDisplay();
+      }
+
+      function saveGoals() {
+        const longTerm = document.getElementById("longTermGoal").value.trim();
+        const what = document.getElementById("whatGoal").value.trim();
+        const how = document.getElementById("howGoal").value.trim();
+
+        if (!longTerm && !what && !how) {
+          showStatus("Enter at least one vision statement", "info");
+          return;
         }
 
-        function saveData() {
-            try {
-                localStorage.setItem('dailyQuestionSettings', JSON.stringify(settings));
-                localStorage.setItem('dailyQuestionAnswers', JSON.stringify(answers));
-            } catch (e) {
-                console.error('Error saving data:', e);
-            }
+        goals = { longTerm, what, how };
+        saveData();
+        updateDisplay();
+        showStatus("Your vision has been saved", "success");
+      }
+
+      function updateGoalsPreview() {
+        const preview = document.getElementById("goalsPreview");
+        let content = '<div class="goals-preview">';
+
+        if (goals.longTerm) {
+          content += `
+                    <div class="goal-section">
+                        <h4>In 3 years, I will be:</h4>
+                        <p>${goals.longTerm}</p>
+                    </div>
+                `;
         }
 
-        function updateDisplay() {
-            document.getElementById('reminderTime').value = settings.reminderTime;
-            
-            const today = new Date().toDateString();
-            const todayAnswer = answers.find(a => new Date(a.date).toDateString() === today);
-            if (todayAnswer) {
-                document.getElementById('question1Answer').value = todayAnswer.answer1 || '';
-                document.getElementById('question2Answer').value = todayAnswer.answer2 || '';
-            } else {
-                document.getElementById('question1Answer').value = '';
-                document.getElementById('question2Answer').value = '';
-            }
-            
-            updateAnswersList();
-            updateNextReminderDisplay();
+        if (goals.what) {
+          content += `
+                    <div class="goal-section">
+                        <h4>What I want to do:</h4>
+                        <p>${goals.what}</p>
+                    </div>
+                `;
         }
 
-        function updateAnswersList() {
-            const list = document.getElementById('answersList');
-            if (answers.length === 0) {
-                list.innerHTML = '<div class="empty-state">Start your journey. Answer today\'s question.</div>';
-                return;
-            }
+        if (goals.how) {
+          content += `
+                    <div class="goal-section">
+                        <h4>How I want to live:</h4>
+                        <p>${goals.how}</p>
+                    </div>
+                `;
+        }
 
-            const sortedAnswers = [...answers].sort((a, b) => new Date(b.date) - new Date(a.date));
-            list.innerHTML = sortedAnswers.map(answer => `
+        content += "</div>";
+        preview.innerHTML = content;
+      }
+
+      function editGoals() {
+        document.getElementById("longTermGoal").value = goals.longTerm || "";
+        document.getElementById("whatGoal").value = goals.what || "";
+        document.getElementById("howGoal").value = goals.how || "";
+
+        document.getElementById("goalsForm").style.display = "block";
+        document.getElementById("goalsDisplay").style.display = "none";
+      }
+
+      function updateTodayAnswerPreview(answer) {
+        const preview = document.getElementById("todayAnswerPreview");
+        preview.innerHTML = `
+                <div class="answer-preview">
+                    <h4>Did I act like my new identity today?</h4>
+                    <p>${answer.answer1 || "No answer recorded"}</p>
+                    <h4>What did I do to prove it?</h4>
+                    <p>${answer.answer2 || "No answer recorded"}</p>
+                </div>
+            `;
+      }
+
+      function editTodayAnswer() {
+        const today = new Date().toDateString();
+        const todayAnswer = answers.find(
+          (a) => new Date(a.date).toDateString() === today,
+        );
+
+        if (todayAnswer) {
+          document.getElementById("question1Answer").value =
+            todayAnswer.answer1 || "";
+          document.getElementById("question2Answer").value =
+            todayAnswer.answer2 || "";
+        }
+
+        document.getElementById("answerForm").style.display = "block";
+        document.getElementById("answeredToday").style.display = "none";
+      }
+
+      function updateAnswersList() {
+        const list = document.getElementById("answersList");
+        if (answers.length === 0) {
+          list.innerHTML =
+            '<div class="empty-state">Start your journey. Answer today\'s question.</div>';
+          return;
+        }
+
+        const sortedAnswers = [...answers].sort(
+          (a, b) => new Date(b.date) - new Date(a.date),
+        );
+        list.innerHTML = sortedAnswers
+          .map(
+            (answer) => `
                 <div class="answer-item">
-                    <div class="answer-date">${new Date(answer.date).toLocaleDateString('en-US', { 
-                        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' 
-                    }).toUpperCase()}</div>
+                    <div class="answer-date">${new Date(answer.date)
+                      .toLocaleDateString("en-US", {
+                        weekday: "short",
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })
+                      .toUpperCase()}</div>
                     <div class="answer-text">
                         <strong>Did I act like my new identity today?</strong><br>
-                        ${answer.answer1 || 'No answer recorded'}
+                        ${answer.answer1 || "No answer recorded"}
                     </div>
                     <div class="answer-text">
                         <strong>What did I do to prove it?</strong><br>
-                        ${answer.answer2 || 'No answer recorded'}
+                        ${answer.answer2 || "No answer recorded"}
                     </div>
                 </div>
-            `).join('');
+            `,
+          )
+          .join("");
+      }
+
+      function updateStats() {
+        const totalAnswers = answers.length;
+        document.getElementById("totalAnswers").textContent = totalAnswers;
+
+        const today = new Date();
+        let streak = 0;
+        let checkDate = new Date(today);
+
+        while (true) {
+          const hasAnswer = answers.some(
+            (a) => new Date(a.date).toDateString() === checkDate.toDateString(),
+          );
+          if (hasAnswer) {
+            streak++;
+            checkDate.setDate(checkDate.getDate() - 1);
+          } else {
+            break;
+          }
         }
 
-        function updateStats() {
-            const totalAnswers = answers.length;
-            document.getElementById('totalAnswers').textContent = totalAnswers;
+        document.getElementById("currentStreak").textContent = streak;
 
-            const today = new Date();
-            let streak = 0;
-            let checkDate = new Date(today);
-            
-            while (true) {
-                const hasAnswer = answers.some(a => 
-                    new Date(a.date).toDateString() === checkDate.toDateString()
+        const thisMonth = answers.filter((a) => {
+          const answerDate = new Date(a.date);
+          return (
+            answerDate.getMonth() === today.getMonth() &&
+            answerDate.getFullYear() === today.getFullYear()
+          );
+        }).length;
+
+        document.getElementById("thisMonth").textContent = thisMonth;
+      }
+
+      function saveSettings() {
+        settings.reminderTime = document.getElementById("reminderTime").value;
+        saveData();
+        scheduleNextReminder();
+        showStatus("Settings saved", "success");
+      }
+
+      function saveAnswer() {
+        const answer1 = document.getElementById("question1Answer").value.trim();
+        const answer2 = document.getElementById("question2Answer").value.trim();
+
+        if (!answer1 && !answer2) {
+          showStatus("Enter at least one answer", "info");
+          return;
+        }
+
+        const today = new Date();
+        const todayString = today.toDateString();
+
+        const existingIndex = answers.findIndex(
+          (a) => new Date(a.date).toDateString() === todayString,
+        );
+
+        const answerData = {
+          date: today.toISOString(),
+          answer1: answer1,
+          answer2: answer2,
+        };
+
+        if (existingIndex >= 0) {
+          answers[existingIndex] = answerData;
+          showStatus("Answers updated", "success");
+        } else {
+          answers.push(answerData);
+          showStatus("Answers saved", "success");
+        }
+
+        saveData();
+        updateAnswersList();
+        updateStats();
+        updateDisplay();
+      }
+
+      function exportToCSV() {
+        if (answers.length === 0) {
+          showStatus("No data to export", "info");
+          return;
+        }
+
+        const headers = [
+          "Date",
+          "Question 1",
+          "Answer 1",
+          "Question 2",
+          "Answer 2",
+        ];
+        const csvContent = [
+          headers.join(","),
+          ...answers.map((answer) =>
+            [
+              `"${new Date(answer.date).toLocaleDateString()}"`,
+              `"Did I act like my new identity today?"`,
+              `"${(answer.answer1 || "").replace(/"/g, '""')}"`,
+              `"What did I do to prove it?"`,
+              `"${(answer.answer2 || "").replace(/"/g, '""')}"`,
+            ].join(","),
+          ),
+        ].join("\n");
+
+        const blob = new Blob([csvContent], { type: "text/csv" });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+
+        const now = new Date();
+        const timeString = now.toTimeString().slice(0, 5).replace(":", "");
+        a.download = `daily-questions-${now.toISOString().split("T")[0]}-${timeString}.csv`;
+
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+
+        showStatus("Data exported", "success");
+      }
+
+      function clearAllData() {
+        if (confirm("Delete all answers and goals? This cannot be undone.")) {
+          answers = [];
+          goals = { longTerm: "", what: "", how: "" };
+          saveData();
+          updateAnswersList();
+          updateStats();
+          updateDisplay();
+          document.getElementById("question1Answer").value = "";
+          document.getElementById("question2Answer").value = "";
+          showStatus("All data cleared", "info");
+        }
+      }
+
+      function setupNotificationPermission() {
+        if ("Notification" in window) {
+          if (Notification.permission === "granted") {
+            notificationPermission = true;
+          }
+        }
+      }
+
+      function testNotification() {
+        if ("Notification" in window) {
+          if (Notification.permission === "granted") {
+            try {
+              const notification = new Notification("Daily Identity Check", {
+                body: "Did I act like my new identity today? What did I do to prove it?",
+                icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="black"/><text x="50" y="60" text-anchor="middle" fill="white" font-size="40">?</text></svg>',
+                requireInteraction: false,
+                tag: "daily-identity-check",
+              });
+              showStatus("Test notification sent", "success");
+            } catch (error) {
+              showStatus(
+                "Error creating notification: " + error.message,
+                "info",
+              );
+            }
+          } else if (Notification.permission === "denied") {
+            showStatus("Notifications blocked. Check browser settings", "info");
+          } else {
+            Notification.requestPermission()
+              .then((permission) => {
+                if (permission === "granted") {
+                  notificationPermission = true;
+                  try {
+                    const notification = new Notification(
+                      "Daily Identity Check",
+                      {
+                        body: "Did I act like my new identity today? What did I do to prove it?",
+                        icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="black"/><text x="50" y="60" text-anchor="middle" fill="white" font-size="40">?</text></svg>',
+                        tag: "daily-identity-check",
+                      },
+                    );
+                    showStatus(
+                      "Permission granted! Test notification sent",
+                      "success",
+                    );
+                  } catch (error) {
+                    showStatus("Error: " + error.message, "info");
+                  }
+                } else {
+                  showStatus("Notification permission denied", "info");
+                }
+              })
+              .catch((error) => {
+                showStatus(
+                  "Error requesting permission: " + error.message,
+                  "info",
                 );
-                if (hasAnswer) {
-                    streak++;
-                    checkDate.setDate(checkDate.getDate() - 1);
-                } else {
-                    break;
-                }
-            }
-            
-            document.getElementById('currentStreak').textContent = streak;
+              });
+          }
+        } else {
+          showStatus("Notifications not supported in this browser", "info");
+        }
+      }
 
-            const thisMonth = answers.filter(a => {
-                const answerDate = new Date(a.date);
-                return answerDate.getMonth() === today.getMonth() && 
-                       answerDate.getFullYear() === today.getFullYear();
-            }).length;
-            
-            document.getElementById('thisMonth').textContent = thisMonth;
+      function scheduleNextReminder() {
+        const now = new Date();
+        const [hours, minutes] = settings.reminderTime.split(":").map(Number);
+
+        let nextReminder = new Date();
+        nextReminder.setHours(hours, minutes, 0, 0);
+
+        if (nextReminder <= now) {
+          nextReminder.setDate(nextReminder.getDate() + 1);
         }
 
-        function saveSettings() {
-            settings.reminderTime = document.getElementById('reminderTime').value;
-            saveData();
-            scheduleNextReminder();
-            showStatus('Settings saved', 'success');
+        const timeUntilReminder = nextReminder.getTime() - now.getTime();
+
+        if (window.reminderTimeout) {
+          clearTimeout(window.reminderTimeout);
         }
 
-        function saveAnswer() {
-            const answer1 = document.getElementById('question1Answer').value.trim();
-            const answer2 = document.getElementById('question2Answer').value.trim();
-            
-            if (!answer1 && !answer2) {
-                showStatus('Enter at least one answer', 'info');
-                return;
-            }
+        window.reminderTimeout = setTimeout(() => {
+          if (Notification.permission === "granted") {
+            new Notification("Daily Identity Check", {
+              body: "Did I act like my new identity today? What did I do to prove it?",
+              tag: "daily-reminder",
+            });
+          }
+          scheduleNextReminder();
+        }, timeUntilReminder);
 
-            const today = new Date();
-            const todayString = today.toDateString();
-            
-            const existingIndex = answers.findIndex(a => new Date(a.date).toDateString() === todayString);
-            
-            const answerData = {
-                date: today.toISOString(),
-                answer1: answer1,
-                answer2: answer2
-            };
+        updateNextReminderDisplay();
+      }
 
-            if (existingIndex >= 0) {
-                answers[existingIndex] = answerData;
-                showStatus('Answers updated', 'success');
-            } else {
-                answers.push(answerData);
-                showStatus('Answers saved', 'success');
-            }
+      function updateNextReminderDisplay() {
+        const reminderElement = document.getElementById("nextReminder");
+        if (!reminderElement) return;
 
-            saveData();
-            updateAnswersList();
-            updateStats();
+        const now = new Date();
+        const [hours, minutes] = settings.reminderTime.split(":").map(Number);
+
+        let nextReminder = new Date();
+        nextReminder.setHours(hours, minutes, 0, 0);
+
+        if (nextReminder <= now) {
+          nextReminder.setDate(nextReminder.getDate() + 1);
         }
 
-        function exportToCSV() {
-            if (answers.length === 0) {
-                showStatus('No data to export', 'info');
-                return;
-            }
+        const options = {
+          weekday: "short",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        };
 
-            const headers = ['Date', 'Question 1', 'Answer 1', 'Question 2', 'Answer 2'];
-            const csvContent = [
-                headers.join(','),
-                ...answers.map(answer => [
-                    `"${new Date(answer.date).toLocaleDateString()}"`,
-                    `"Did I act like my new identity today?"`,
-                    `"${(answer.answer1 || '').replace(/"/g, '""')}"`,
-                    `"What did I do to prove it?"`,
-                    `"${(answer.answer2 || '').replace(/"/g, '""')}"`
-                ].join(','))
-            ].join('\n');
+        reminderElement.textContent = nextReminder
+          .toLocaleDateString("en-US", options)
+          .toUpperCase();
+      }
 
-            const blob = new Blob([csvContent], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `daily-questions-${new Date().toISOString().split('T')[0]}.csv`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
+      function showStatus(message, type) {
+        const statusDiv = document.getElementById("notificationStatus");
+        statusDiv.innerHTML = `<span class="time-display">${message.toUpperCase()}</span>`;
+        statusDiv.className = `status ${type}`;
 
-            showStatus('Data exported', 'success');
-        }
+        setTimeout(() => {
+          statusDiv.innerHTML = `Next reminder: <span class="time-display" id="nextReminder">Not set</span>`;
+          statusDiv.className = "status info";
+          updateNextReminderDisplay();
+        }, 2000);
+      }
 
-        function clearAllData() {
-            if (confirm('Delete all answers? This cannot be undone.')) {
-                answers = [];
-                saveData();
-                updateAnswersList();
-                updateStats();
-                document.getElementById('question1Answer').value = '';
-                document.getElementById('question2Answer').value = '';
-                showStatus('All data cleared', 'info');
-            }
-        }
-
-        function setupNotificationPermission() {
-            if ('Notification' in window) {
-                if (Notification.permission === 'granted') {
-                    notificationPermission = true;
-                }
-            }
-        }
-
-        function testNotification() {
-            console.log('Test notification clicked');
-            console.log('Notification support:', 'Notification' in window);
-            console.log('Current permission:', Notification.permission);
-            
-            if ('Notification' in window) {
-                if (Notification.permission === 'granted') {
-                    console.log('Permission already granted, sending notification');
-                    try {
-                        const notification = new Notification('Daily Identity Check', {
-                            body: 'Did I act like my new identity today? What did I do to prove it?',
-                            icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="black"/><text x="50" y="60" text-anchor="middle" fill="white" font-size="40">?</text></svg>',
-                            requireInteraction: false,
-                            tag: 'daily-identity-check'
-                        });
-                        console.log('Notification created:', notification);
-                        showStatus('Test notification sent', 'success');
-                    } catch (error) {
-                        console.error('Error creating notification:', error);
-                        showStatus('Error creating notification: ' + error.message, 'info');
-                    }
-                } else if (Notification.permission === 'denied') {
-                    console.log('Permission denied');
-                    showStatus('Notifications blocked. Check browser settings', 'info');
-                } else {
-                    console.log('Requesting permission...');
-                    Notification.requestPermission().then(permission => {
-                        console.log('Permission result:', permission);
-                        if (permission === 'granted') {
-                            notificationPermission = true;
-                            try {
-                                const notification = new Notification('Daily Identity Check', {
-                                    body: 'Did I act like my new identity today? What did I do to prove it?',
-                                    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="black"/><text x="50" y="60" text-anchor="middle" fill="white" font-size="40">?</text></svg>',
-                                    tag: 'daily-identity-check'
-                                });
-                                console.log('Notification after permission granted:', notification);
-                                showStatus('Permission granted! Test notification sent', 'success');
-                            } catch (error) {
-                                console.error('Error after permission granted:', error);
-                                showStatus('Error: ' + error.message, 'info');
-                            }
-                        } else {
-                            console.log('Permission denied by user');
-                            showStatus('Notification permission denied', 'info');
-                        }
-                    }).catch(error => {
-                        console.error('Error requesting permission:', error);
-                        showStatus('Error requesting permission: ' + error.message, 'info');
-                    });
-                }
-            } else {
-                console.log('Notifications not supported');
-                showStatus('Notifications not supported in this browser', 'info');
-            }
-        }
-
-        function scheduleNextReminder() {
-            const now = new Date();
-            const [hours, minutes] = settings.reminderTime.split(':').map(Number);
-            
-            let nextReminder = new Date();
-            nextReminder.setHours(hours, minutes, 0, 0);
-            
-            if (nextReminder <= now) {
-                nextReminder.setDate(nextReminder.getDate() + 1);
-            }
-            
-            const timeUntilReminder = nextReminder.getTime() - now.getTime();
-            
-            if (window.reminderTimeout) {
-                clearTimeout(window.reminderTimeout);
-            }
-            
-            window.reminderTimeout = setTimeout(() => {
-                if (Notification.permission === 'granted') {
-                    new Notification('Daily Identity Check', {
-                        body: 'Did I act like my new identity today? What did I do to prove it?',
-                        tag: 'daily-reminder'
-                    });
-                }
-                scheduleNextReminder();
-            }, timeUntilReminder);
-            
-            updateNextReminderDisplay();
-        }
-
-        function updateNextReminderDisplay() {
-            const reminderElement = document.getElementById('nextReminder');
-            if (!reminderElement) return;
-            
-            const now = new Date();
-            const [hours, minutes] = settings.reminderTime.split(':').map(Number);
-            
-            let nextReminder = new Date();
-            nextReminder.setHours(hours, minutes, 0, 0);
-            
-            if (nextReminder <= now) {
-                nextReminder.setDate(nextReminder.getDate() + 1);
-            }
-            
-            const options = {
-                weekday: 'short', month: 'short', day: 'numeric',
-                hour: '2-digit', minute: '2-digit'
-            };
-            
-            reminderElement.textContent = 
-                nextReminder.toLocaleDateString('en-US', options).toUpperCase();
-        }
-
-        function showStatus(message, type) {
-            const statusDiv = document.getElementById('notificationStatus');
-            statusDiv.innerHTML = `<span class="time-display">${message.toUpperCase()}</span>`;
-            statusDiv.className = `status ${type}`;
-            
-            setTimeout(() => {
-                statusDiv.innerHTML = `Next reminder: <span class="time-display" id="nextReminder">Not set</span>`;
-                statusDiv.className = 'status info';
-                updateNextReminderDisplay();
-            }, 2000);
-        }
-
-        function showInstallInstructions() {
-            const modal = document.createElement('div');
-            modal.style.cssText = `
+      function showInstallInstructions() {
+        const modal = document.createElement("div");
+        modal.style.cssText = `
                 position: fixed; top: 0; left: 0; width: 100%; height: 100%;
                 background: rgba(0,0,0,0.8); display: flex; align-items: center;
                 justify-content: center; z-index: 1000; padding: 20px;
             `;
-            
-            const content = document.createElement('div');
-            content.style.cssText = `
+
+        const content = document.createElement("div");
+        content.style.cssText = `
                 background: white; border: 2px solid black; padding: 40px;
                 max-width: 500px; width: 100%; max-height: 80vh; overflow-y: auto;
             `;
-            
-            content.innerHTML = `
+
+        content.innerHTML = `
                 <h3 style="margin-bottom: 20px; font-size: 1.5rem;">Install as Desktop App</h3>
                 <div style="line-height: 1.6; margin-bottom: 30px;">
                     <strong>Chrome/Edge:</strong><br>
@@ -790,41 +1203,42 @@
                     2. Double-click to open anytime
                 </div>
                 <div style="text-align: center;">
-                    <button onclick="this.closest('[style*=fixed]').remove()" 
+                    <button onclick="this.closest('[style*=fixed]').remove()"
                             style="background: black; color: white; border: none; padding: 12px 24px; cursor: pointer;">
                         Close
                     </button>
                 </div>
             `;
-            
-            modal.appendChild(content);
-            document.body.appendChild(modal);
-            
+
+        modal.appendChild(content);
+        document.body.appendChild(modal);
+      }
+
+      function showReportView() {
+        if (answers.length === 0) {
+          showStatus("No answers to display yet", "info");
+          return;
         }
 
-        function showReportView() {
-            if (answers.length === 0) {
-                showStatus('No answers to display yet', 'info');
-                return;
-            }
-
-            const modal = document.createElement('div');
-            modal.style.cssText = `
+        const modal = document.createElement("div");
+        modal.style.cssText = `
                 position: fixed; top: 0; left: 0; width: 100%; height: 100%;
                 background: rgba(0,0,0,0.9); display: flex; align-items: center;
                 justify-content: center; z-index: 1000; padding: 20px;
             `;
-            
-            const content = document.createElement('div');
-            content.style.cssText = `
+
+        const content = document.createElement("div");
+        content.style.cssText = `
                 background: white; border: 3px solid black; width: 90%; max-width: 900px;
                 height: 85vh; display: flex; flex-direction: column;
             `;
-            
-            const stats = calculateReportStats();
-            const sortedAnswers = [...answers].sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            content.innerHTML = `
+
+        const stats = calculateReportStats();
+        const sortedAnswers = [...answers].sort(
+          (a, b) => new Date(b.date) - new Date(a.date),
+        );
+
+        content.innerHTML = `
                 <div style="padding: 30px; border-bottom: 2px solid black; background: #f8f8f8;">
                     <h2 style="margin: 0 0 20px 0; font-size: 2rem;">Identity Transformation Report</h2>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
@@ -842,14 +1256,18 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div style="flex: 1; padding: 30px; overflow-y: auto;">
-                    ${sortedAnswers.map(answer => {
+                    ${sortedAnswers
+                      .map((answer) => {
                         const date = new Date(answer.date);
-                        const formattedDate = date.toLocaleDateString('en-US', { 
-                            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
+                        const formattedDate = date.toLocaleDateString("en-US", {
+                          weekday: "long",
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
                         });
-                        
+
                         return `
                             <div style="margin-bottom: 40px; padding: 25px; border: 2px solid #e5e5e5; background: #fafafa;">
                                 <div style="font-size: 1.1rem; font-weight: 700; color: black; margin-bottom: 20px; text-transform: uppercase;">
@@ -858,61 +1276,64 @@
                                 <div style="margin-bottom: 20px;">
                                     <div style="font-weight: 600; color: black; margin-bottom: 8px;">Did I act like my new identity today?</div>
                                     <div style="color: #333; line-height: 1.6; padding-left: 15px; border-left: 3px solid black;">
-                                        ${answer.answer1 || 'No answer recorded'}
+                                        ${answer.answer1 || "No answer recorded"}
                                     </div>
                                 </div>
                                 <div>
                                     <div style="font-weight: 600; color: black; margin-bottom: 8px;">What did I do to prove it?</div>
                                     <div style="color: #333; line-height: 1.6; padding-left: 15px; border-left: 3px solid black;">
-                                        ${answer.answer2 || 'No answer recorded'}
+                                        ${answer.answer2 || "No answer recorded"}
                                     </div>
                                 </div>
                             </div>
                         `;
-                    }).join('')}
+                      })
+                      .join("")}
                 </div>
-                
-                <button onclick="this.closest('[style*=fixed]').remove()" 
-                        style="position: absolute; top: 20px; right: 20px; background: black; color: white; 
+
+                <button onclick="this.closest('[style*=fixed]').remove()"
+                        style="position: absolute; top: 20px; right: 20px; background: black; color: white;
                                border: none; width: 40px; height: 40px; cursor: pointer; font-size: 20px;">×</button>
             `;
-            
-            modal.appendChild(content);
-            document.body.appendChild(modal);
-            
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.remove();
-            });
+
+        modal.appendChild(content);
+        document.body.appendChild(modal);
+
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) modal.remove();
+        });
+      }
+
+      function calculateReportStats() {
+        const totalEntries = answers.length;
+        const today = new Date();
+
+        let streak = 0;
+        let checkDate = new Date(today);
+        while (true) {
+          const hasAnswer = answers.some(
+            (a) => new Date(a.date).toDateString() === checkDate.toDateString(),
+          );
+          if (hasAnswer) {
+            streak++;
+            checkDate.setDate(checkDate.getDate() - 1);
+          } else {
+            break;
+          }
         }
 
-        function calculateReportStats() {
-            const totalEntries = answers.length;
-            const today = new Date();
-            
-            let streak = 0;
-            let checkDate = new Date(today);
-            while (true) {
-                const hasAnswer = answers.some(a => 
-                    new Date(a.date).toDateString() === checkDate.toDateString()
-                );
-                if (hasAnswer) {
-                    streak++;
-                    checkDate.setDate(checkDate.getDate() - 1);
-                } else {
-                    break;
-                }
-            }
-            
-            const thisMonth = answers.filter(a => {
-                const answerDate = new Date(a.date);
-                return answerDate.getMonth() === today.getMonth() && 
-                       answerDate.getFullYear() === today.getFullYear();
-            }).length;
-            
-            return { totalEntries, currentStreak: streak, thisMonth };
-        }
+        const thisMonth = answers.filter((a) => {
+          const answerDate = new Date(a.date);
+          return (
+            answerDate.getMonth() === today.getMonth() &&
+            answerDate.getFullYear() === today.getFullYear()
+          );
+        }).length;
 
-        setInterval(updateNextReminderDisplay, 60000);
+        return { totalEntries, currentStreak: streak, thisMonth };
+      }
+
+      setInterval(updateNextReminderDisplay, 60000);
     </script>
-</body>
+  </body>
 </html>
