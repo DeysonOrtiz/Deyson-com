@@ -2,7 +2,7 @@
 title: "Embrace Your Journey: From Camera Shyness to On-Camera Hero!"
 layout: layouts/article.njk
 date: 2023-07-26
-categories: 
+categories:
   - "blog"
 ---
 
@@ -20,7 +20,7 @@ When you openly express your fears and vulnerabilities, you add a layer of brave
 
 Showing your true, unfiltered self on camera is not just about conquering your fears.
 
-It is about using your unique imperfections as stepping stones to build a more confident, relatable persona. 
+It is about using your unique quirks as stepping stones to build a more confident, relatable persona. 
 
 And who knows? 
 
