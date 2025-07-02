@@ -3,12 +3,22 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("assets"); // Add this line
+  eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("tools");
-  // Articles collection (renamed from blog)
+
+  // Copy article images to match the article structure
+  eleventyConfig.addPassthroughCopy({
+    "pages/articles/re-discover-your-art/images":
+      "articles/re-discover-your-art/images",
+    "pages/articles/the-power-of-using-templates/images":
+      "articles/the-power-of-using-templates/images",
+  });
+
+  // Articles collection (COMBINED - only one collection definition)
   eleventyConfig.addCollection("articles", function (collectionApi) {
     return collectionApi
-      .getFilteredByGlob("pages/blog/*/index.md")
+      .getFilteredByGlob("pages/articles/*/index.md")
+      .filter((post) => !post.data.draft) // Filter out drafts
       .sort((a, b) => b.date - a.date);
   });
 
