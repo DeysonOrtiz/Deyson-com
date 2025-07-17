@@ -21,6 +21,46 @@ body {
   padding-top: 80px;
 }
 
+/* Content list styling - only for lists in content areas */
+.story-section ul,
+.section ul {
+  margin: 1.5em 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.story-section li,
+.section li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.story-section li::before,
+.section li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #666;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Dark mode support if you have it */
+@media (prefers-color-scheme: dark) {
+  li::before {
+    color: #ccc;
+  }
+}
+
+/* Alternative: Custom bullet with accent color */
+li.accent::before {
+  content: "→";
+  color: #007acc; /* Replace with your brand color */
+}
+
 .container {
   max-width: 800px;
   margin: 0 auto;
