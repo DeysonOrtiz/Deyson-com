@@ -2,6 +2,10 @@
 
 // Default videos for main page
 const defaultVideos = {
+  videoIntro: {
+    id: "1122355487",
+    padding: "56%",
+  },
   video0: {
     id: "1095226090",
     padding: "80.28%",
@@ -35,6 +39,58 @@ function addVideos(newVideos) {
 // Function to set videos for a specific page (replaces all videos)
 function setVideos(pageVideos) {
   videos = pageVideos;
+}
+
+// Add this function to set correct video aspect ratio
+function setVideoAspectRatio(videoId, containerId) {
+  const video = videos[videoId];
+  if (!video) return;
+
+  // Fetch video info from Vimeo to get actual dimensions
+  fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${video.id}`)
+    .then((response) => response.json())
+    .then((data) => {
+      const container = document.querySelector(
+        containerId || ".personal-video-container",
+      );
+      if (!container) return;
+
+      const width = data.width;
+      const height = data.height;
+      const aspectRatio = width / height;
+
+      // Remove existing ratio classes
+      container.classList.remove(
+        "ratio-16-9",
+        "ratio-9-16",
+        "ratio-4-3",
+        "ratio-1-1",
+      );
+
+      // Apply appropriate aspect ratio class
+      if (Math.abs(aspectRatio - 16 / 9) < 0.1) {
+        container.classList.add("ratio-16-9");
+      } else if (Math.abs(aspectRatio - 9 / 16) < 0.1) {
+        container.classList.add("ratio-9-16");
+      } else if (Math.abs(aspectRatio - 4 / 3) < 0.1) {
+        container.classList.add("ratio-4-3");
+      } else if (Math.abs(aspectRatio - 1) < 0.1) {
+        container.classList.add("ratio-1-1");
+      } else {
+        // Custom aspect ratio
+        container.style.aspectRatio = `${width} / ${height}`;
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching video info:", error);
+      // Fallback to 16:9 if API fails
+      const container = document.querySelector(
+        containerId || ".personal-video-container",
+      );
+      if (container) {
+        container.classList.add("ratio-16-9");
+      }
+    });
 }
 
 function openLightbox(videoId, title = "") {
@@ -855,6 +911,11 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(() => {
     makeImagesClickable();
   }, 500);
+
+  // Set correct aspect ratio for the main video
+  setTimeout(() => {
+    setVideoAspectRatio("video0", ".personal-video-container");
+  }, 1000);
 
   // Run discount gate on hourly/booking pages
   if (

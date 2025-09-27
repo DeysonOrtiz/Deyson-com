@@ -319,7 +319,7 @@ body.menu-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: left;
+  text-align: center;
   background: #fefdf9;
   position: relative;
   overflow: hidden;
@@ -329,7 +329,7 @@ body.menu-open {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 700px;
+  max-width: 950px;
   width: 100%;
   padding: 0 24px;
 }
@@ -792,6 +792,86 @@ li.accent::before {
 }
 
 /* ===== VIDEO COMPONENTS ===== */
+
+/* Video Introduction Section - Add this to your existing styles.css */
+.video-intro-section {
+  padding: 60px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #f3f4f6;
+  text-align: center;
+}
+
+.video-intro-text,
+.video-outro-text {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: #4b5563;
+  line-height: 1.65;
+  font-family: "Charter", "Georgia", serif;
+}
+
+.video-intro-text {
+  margin-bottom: 32px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.video-outro-text {
+  margin-top: 32px;
+  font-style: italic;
+}
+
+.personal-video-container {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1; /* Square aspect ratio for LinkedIn format */
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.personal-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mobile responsive for personal video */
+@media (max-width: 768px) {
+  .video-intro-section {
+    padding: 40px 0;
+  }
+
+  .personal-video-container {
+    max-width: 320px;
+  }
+
+  .video-intro-text,
+  .video-outro-text {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+
+  .video-intro-text {
+    margin-bottom: 24px;
+  }
+
+  .video-outro-text {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .personal-video-container {
+    max-width: 280px;
+  }
+}
 .video-container {
   display: flex;
   justify-content: center;
@@ -905,6 +985,104 @@ li.accent::before {
   text-align: center;
   font-size: 14px;
   font-family: "Inter", sans-serif;
+}
+
+/* Video Introduction Section - Add this to your existing styles.css */
+.video-intro-section {
+  padding: 60px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #f3f4f6;
+  text-align: center;
+}
+
+.video-intro-text,
+.video-outro-text {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: #4b5563;
+  line-height: 1.65;
+  font-family: "Charter", "Georgia", serif;
+}
+
+.video-intro-text {
+  margin-bottom: 32px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.video-outro-text {
+  margin-top: 32px;
+  font-style: italic;
+}
+
+/* Replace the existing .personal-video-container rule with this: */
+.personal-video-container {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  /* Remove the fixed aspect-ratio: 1 / 1; */
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Add dynamic aspect ratio support */
+.personal-video-container.ratio-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.personal-video-container.ratio-9-16 {
+  aspect-ratio: 9 / 16;
+}
+
+.personal-video-container.ratio-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.personal-video-container.ratio-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.personal-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mobile responsive for personal video */
+@media (max-width: 768px) {
+  .video-intro-section {
+    padding: 40px 0;
+  }
+
+  .personal-video-container {
+    max-width: 320px;
+  }
+
+  .video-intro-text,
+  .video-outro-text {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+
+  .video-intro-text {
+    margin-bottom: 24px;
+  }
+
+  .video-outro-text {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .personal-video-container {
+    max-width: 280px;
+  }
 }
 
 /* ===== PHILOSOPHY SECTION ===== */
