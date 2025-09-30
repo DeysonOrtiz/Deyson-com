@@ -3,7 +3,6 @@ layout: layouts/base.njk
 title: Deyson Ortiz - Video Producer
 pageScripts: |
   <script>
-    // Add example video for this page
     addVideos({
       exampleVideo1: {
         id: '1120408693',
@@ -13,62 +12,49 @@ pageScripts: |
   </script>
 ---
 
-<!-- Hero Section -->
 <section class="hero">
   <div class="container">
     <h1>Share Your Story with Confidence.</h1>
     <p class="subtitle-2">
       With over 30 years of experience in video production, I help you convey
-      your message through authentic stories.<br /><br />My approach allows you
-      to speak from the heart and build the trust necessary to grow your
-      business.
+      your message through authentic stories. My approach allows you to speak
+      from the heart and build the trust necessary to grow your business.
     </p>
   </div>
 </section>
 
-<!-- Video Introduction -->
-<section class="video-intro-section">
+<section class="video-section">
   <div class="container">
-    <p class="video-intro-text">
+    <p style="text-align: center">
       Watch this short introduction to learn more about how I can help you
     </p>
-    <div class="personal-video-container ratio-16-9">
-      <!-- Video placeholder - replace with your actual video embed -->
-      <div
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 100%;
-          background: #f3f4f6;
-        "
-      >
-        <p style="color: #6b7280">Introduction video will go here</p>
+    <div class="video-wrapper">
+      <div class="video-placeholder">
+        <p>Introduction video will go here</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- What I Do Section -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">What You Will Achieve</h2>
     <div class="benefits-grid">
-      <div class="benefit-item">
+      <div>
         <h3>Grow Your Business</h3>
         <p>
           I produce videos that drive results, helping you reach more customers
           and increase your impact in the market.
         </p>
       </div>
-      <div class="benefit-item">
+      <div>
         <h3>Connect With People</h3>
         <p>
           Your message matters. I help you create authentic videos that build
           trust and meaningful connections with your audience.
         </p>
       </div>
-      <div class="benefit-item">
+      <div>
         <h3>Share Your Story</h3>
         <p>
           Every business has a unique story. I work with you to bring your
@@ -79,11 +65,10 @@ pageScripts: |
   </div>
 </section>
 
-<!-- Example Videos Section -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">See It In Action</h2>
-    <p class="section-description">
+    <p>
       Watch examples of how we help clients tell their stories with confidence
     </p>
     <div class="video-testimonials">
@@ -103,49 +88,44 @@ pageScripts: |
   </div>
 </section>
 
-<!-- Process Section -->
-<section class="philosophy-section">
-  <div class="philosophy-content">
-    <h2 class="philosophy-title">How We Work Together</h2>
-    <p class="philosophy-text">
+<section class="section-light">
+  <div class="container">
+    <h2 class="section-title">How We Work Together</h2>
+    <p>
       From concept to final delivery, I guide you through every step of the
       video production process.
     </p>
-  </div>
-</section>
 
-<section class="section">
-  <div class="container">
     <div class="benefits-grid">
-      <div class="benefit-item">
+      <div>
         <h3>Discovery</h3>
         <p>
           We discuss your goals, audience, and vision to create a clear plan for
           your video project.
         </p>
       </div>
-      <div class="benefit-item">
+      <div>
         <h3>Confidence Coaching</h3>
         <p>
           I also offer confidence coaching, so you will not only look your best
           but feel your best on camera.
         </p>
       </div>
-      <div class="benefit-item">
+      <div>
         <h3>Production</h3>
         <p>
           Professional filming with attention to every detail, ensuring you look
           and sound your best.
         </p>
       </div>
-      <div class="benefit-item">
+      <div>
         <h3>Post-Production</h3>
         <p>
           Expert editing, color grading, and sound design to polish your video
           to perfection.
         </p>
       </div>
-      <div class="benefit-item">
+      <div>
         <h3>Delivery</h3>
         <p>
           You receive your completed video, optimized for your chosen platforms
@@ -156,28 +136,24 @@ pageScripts: |
   </div>
 </section>
 
-<!-- Free Consultation -->
-<section class="section">
+<section class="section center">
   <div class="container">
-    <div class="cta-center">
-      <h2 class="section-title">Start With a Free Consultation</h2>
-      <p class="section-description">
-        Schedule a 45 minute consultation to discuss your video project and
-        explore how we can work together.
-      </p>
-      <button
-        class="cta-button"
-        data-cal-link="deyson/free-consultation-let-us-talk-video"
-        data-cal-namespace="free-consultation-let-us-talk-video"
-        data-cal-config='{"layout":"month_view"}'
-      >
-        Schedule Your Free Consultation
-      </button>
-    </div>
+    <h2>Start With a Free Consultation</h2>
+    <p>
+      Schedule a 45 minute consultation to discuss your video project and
+      explore how we can work together.
+    </p>
+    <button
+      class="btn-primary"
+      data-cal-link="deyson/free-consultation-let-us-talk-video"
+      data-cal-namespace="free-consultation-let-us-talk-video"
+      data-cal-config='{"layout":"month_view"}'
+    >
+      Schedule Your Free Consultation
+    </button>
   </div>
 </section>
 
-<!-- Cal element-click embed code begins -->
 <script type="text/javascript">
   (function (C, A, L) {
     let p = function (a, ar) {
@@ -219,4 +195,3 @@ pageScripts: |
     layout: "month_view",
   });
 </script>
-<!-- Cal element-click embed code ends -->
