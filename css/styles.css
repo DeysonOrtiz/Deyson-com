@@ -457,6 +457,7 @@ body.menu-open {
 }
 
 /* ===== SECTIONS ===== */
+
 .section {
   padding: 80px 0;
   border-bottom: 1px solid #f3f4f6;
@@ -1355,4 +1356,9 @@ li.accent::before {
     padding: 6px 12px;
     font-size: 12px;
   }
+}
+
+.formkit-form[data-uid="ca889b1952"] .formkit-powered-by-convertkit-container {
+  opacity: 20%;
+  margin-bottom: 0;
 }
