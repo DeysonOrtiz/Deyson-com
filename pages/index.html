@@ -3,8 +3,11 @@ layout: layouts/base.njk
 title: Deyson Ortiz - Video Producer
 pageScripts: |
   <script>
-    // Add example video for this page
     addVideos({
+      producer_intro_video: {
+        id: '1124357821',
+        padding: '56.25%'
+      },
       exampleVideo1: {
         id: '1120408693',
         padding: '56.25%'
@@ -33,14 +36,30 @@ pageScripts: |
       Watch this short introduction to learn more about how I can help you
     </p>
     <div class="video-wrapper">
-      <div class="video-placeholder">
-        <p>Your introduction video will go here</p>
+      <div
+        class="video-testimonial"
+        onclick="openLightbox('producer_intro_video')"
+        style="position: relative"
+      >
+        <div class="video-thumbnail" style="position: relative">
+          <style>
+            .video-section .video-testimonial .video-thumbnail::after {
+              top: calc(15% + 40px) !important;
+              left: 15% !important;
+            }
+            .video-section .video-testimonial .video-thumbnail::before {
+              top: calc(15% + 40px) !important;
+              left: 15% !important;
+            }
+          </style>
+        </div>
+        <div class="video-title">Introduction Video</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- What I Do Section -->
+<!-- What You Will Achieve Section -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">What You Will Achieve</h2>
