@@ -1,18 +1,29 @@
 ---
 layout: layouts/base.njk
 title: Monthly Video Workshop
+pageScripts: |
+  <script>
+    addVideos({
+      workshop_intro: {
+        id: '1124343986',
+        padding: '56.25%'
+      }
+    });
+  </script>
 ---
 
 <section class="hero">
   <div class="container">
-    <h1>Grow Your Business with Video</h1>
+    <h1>From Showing Up to Standing Out.</h1>
+    <p class="subtitle">
+      A Workshop for Professionals Who Use Video to Grow Their Business.
+    </p>
     <p class="subtitle-2">
-      You already show up on camera, now it is time to stand out.
+      You already show up on camera. Now it is time to stand out.
     </p>
     <p>
-      For professionals whose business depends on video, this workshop helps you
-      improve your setup and presence with expert guidance.<br /><br />Create
-      videos that look professional, sound clear, and build lasting trust.
+      This hands-on workshop helps you refine your setup, presence, and message
+      to create videos that look polished, sound clear, and earn trust.
     </p>
   </div>
 </section>
@@ -20,8 +31,24 @@ title: Monthly Video Workshop
 <section class="video-section center">
   <div class="container">
     <div class="video-wrapper">
-      <div class="video-placeholder">
-        <p>Workshop Introduction Video Coming Soon...</p>
+      <div
+        class="video-testimonial"
+        onclick="openLightbox('workshop_intro')"
+        style="position: relative"
+      >
+        <div class="video-thumbnail" style="position: relative">
+          <style>
+            .video-section .video-testimonial .video-thumbnail::after {
+              top: calc(15% + 40px) !important;
+              left: 15% !important;
+            }
+            .video-section .video-testimonial .video-thumbnail::before {
+              top: calc(15% + 40px) !important;
+              left: 15% !important;
+            }
+          </style>
+        </div>
+        <div class="video-title">Workshop Introduction</div>
       </div>
     </div>
   </div>
