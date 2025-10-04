@@ -1,6 +1,27 @@
 ---
 layout: layouts/base.njk
 title: Camera Confidence Coaching
+pageScripts: |
+  <script>
+    addVideos({
+      intro_video: {
+        id: '1124361182',
+        padding: '56.25%'
+      },
+      video1: {
+        id: '1056853912',
+        padding: '63.28%'
+      },
+      video2: {
+        id: '1052267805',
+        padding: '56.25%'
+      },
+      video3: {
+        id: '847106055',
+        padding: '100%'
+      }
+    });
+  </script>
 ---
 
 <section class="hero">
@@ -14,39 +35,55 @@ title: Camera Confidence Coaching
 
 <section class="video-section center">
   <div class="container">
-    <p>Here is why most video marketing advice misses the mark...</p>
+    <p class="video-intro-text">
+      Learn how my one-on-one coaching program can transform your camera
+      confidence
+    </p>
     <div class="video-wrapper">
-      <div class="video-testimonial" onclick="openLightbox('videoIntro')">
-        <div class="video-thumbnail"></div>
-        <div class="video-title">
-          Here's why most video marketing advice misses the mark...
+      <div
+        class="video-testimonial"
+        onclick="openLightbox('intro_video')"
+        style="position: relative"
+      >
+        <div class="video-thumbnail" style="position: relative">
+          <style>
+            .video-section .video-testimonial .video-thumbnail::after {
+              top: calc(15% + 40px) !important;
+              left: 15% !important;
+            }
+            .video-section .video-testimonial .video-thumbnail::before {
+              top: calc(15% + 40px) !important;
+              left: 15% !important;
+            }
+          </style>
         </div>
+        <div class="video-title">One-on-One Coaching Program Overview</div>
       </div>
     </div>
     <p class="testimonial-quote">
-      This is exactly what I help my clients develop - the authentic presence
-      that makes people stop scrolling and start buying.
+      Discover how personalized one-on-one coaching helps you develop the
+      authentic presence that makes people stop scrolling and start buying.
     </p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2>When you hit record, do you forget who you are?</h2>
+    <h2>When the camera turns on, something shifts.</h2>
     <p>
-      Your voice changes. Your hands shake. You sound like someone reading a
-      police report.
+      You start performing instead of connecting. This session helps you
+      reconnect with your true self.
     </p>
-    <p>So you delete the video. Again.</p>
   </div>
 </section>
 
 <section class="section-light">
   <div class="container">
-    <h2>Here is what 30 years behind the camera taught me:</h2>
+    <h2>Here is what thirty years behind the camera taught me:</h2>
     <p>
-      The people who move us are not the loudest or most polished. They are the
-      ones who let their truth show.
+      I have spent over thirty years behind the camera helping leaders, artists,
+      and entrepreneurs showcase their best. When someone rediscovers their
+      natural voice, calm replaces fear, and authenticity replaces tension.
     </p>
     <p>
       That crack in your voice when you share a breakthrough? That pause when
@@ -82,8 +119,8 @@ title: Camera Confidence Coaching
   <div class="container">
     <h2 class="section-title">This Is Not About Learning to Perform</h2>
     <p>
-      It is about becoming undeniably you. And letting the world come to you
-      because of it.
+      In this ninety-minute session, we focus on what truly matters: your
+      confidence, your clarity, and your connection with your audience.
     </p>
     <h3>My Camera Confidence Coaching transforms:</h3>
     <ul>
@@ -92,22 +129,34 @@ title: Camera Confidence Coaching
       <li>Hesitation into magnetic presence</li>
     </ul>
     <p>
-      In 90 minutes, I help you break through walls that other coaches could not
-      crack in months.
+      When you present yourself authentically, people notice. They trust you,
+      remember you, and want to collaborate with you. This session helps you
+      communicate who you really are with calmness and confidence.
     </p>
-    <p>
-      Because confidence is not about being perfect on camera.<br />
-      <strong>It is about being perfectly you.</strong>
-    </p>
+  </div>
+</section>
+
+<section class="section center">
+  <div class="container">
+    <h2>Book Your Session Now</h2>
+    <p class="price-large">$500</p>
+    <button
+      class="btn-primary"
+      data-cal-link="deyson/on-camera-confidence-coaching"
+      data-cal-config='{"layout":"month_view"}'
+    >
+      Book Your Session
+    </button>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <h2 class="section-title">What You Will Learn</h2>
+    <p>You will leave this session with the tools and confidence to:</p>
     <div class="benefits-grid">
       <div>
-        <h3>Discover Your Signature Presence</h3>
+        <h3>Speak clearly and calmly</h3>
         <p>
           You are not here to copy anyone. You are here to own what only you can
           say. We will uncover what makes you compelling and sharpen it like a
@@ -115,7 +164,7 @@ title: Camera Confidence Coaching
         </p>
       </div>
       <div>
-        <h3>Turn Expertise Into Revenue</h3>
+        <h3>Connect naturally with your audience</h3>
         <p>
           You know your stuff. But if it is stuck in your head, it is not
           helping anyone. Learn how to package your knowledge into content that
@@ -123,7 +172,7 @@ title: Camera Confidence Coaching
         </p>
       </div>
       <div>
-        <h3>Build Magnetic Authority</h3>
+        <h3>Deliver your message in a way that inspires trust</h3>
         <p>
           You do not need more followers. You need positioning that makes people
           say, "That is who we need." I will show you how.
@@ -162,27 +211,9 @@ title: Camera Confidence Coaching
       <strong>How Juan went from frozen to flowing in just 90 minutes.</strong>
     </p>
     <p>
-      Juan came to me, stuck. Not the stuck you see, the kind that tightens
-      around your throat the moment the record light turns red.
-    </p>
-    <p>
-      He had ADHD that made his mind spiral the second he needed to focus. He
-      had spent thousands on courses and quick-fix tutorials.
-    </p>
-    <p>
-      None of it worked. Because they were trying to make him someone he was
-      not.
-    </p>
-    <p>I did the opposite. We sat. We slowed down. I listened.</p>
-    <p>I gave him space to breathe, to be human, to speak, not perform.</p>
-    <p>
-      <strong
-        >Ninety minutes later, he recorded his first video. Not perfect. Not
-        polished. Real.</strong
-      >
-    </p>
-    <p>
-      That one video led to more videos, video courses, and real connections.
+      Juan arrived feeling nervous and thought he needed a script. Ninety
+      minutes later, he felt calm, confident, and natural in front of the
+      camera. He discovered that being himself was all he needed.
     </p>
     <p class="testimonial-quote">
       Today, Juan records videos on his own. No fear. No freeze. Just flow.
@@ -198,8 +229,9 @@ title: Camera Confidence Coaching
   <div class="container">
     <h2>Ready to Transform Your Camera Fear Into Your Competitive Edge?</h2>
     <p>
-      Your message matters. Your expertise deserves to be seen. Your authentic
-      presence is waiting.
+      The camera reflects the energy you bring. When you show up completely, you
+      invite trust, connection, and new opportunities. This is your moment to
+      share your story with calmness and confidence.
     </p>
     <p>In 90 minutes, we will unlock what has been holding you back.</p>
     <p>No scripts. No masks. Just you - amplified.</p>
@@ -213,7 +245,7 @@ title: Camera Confidence Coaching
       <div>
         <p class="author-name">Jill Martin</p>
         <p class="author-title">Executive Producer</p>
-        <p class="stars">⭐⭐⭐⭐⭐</p>
+        <p class="stars">★★★★★</p>
         <p class="testimonial-quote">
           "I gained not just confidence but clarity and authority. Deyson didn't
           just help me look good—he helped me lead."
@@ -227,7 +259,7 @@ title: Camera Confidence Coaching
       <div>
         <p class="author-name">Chris Faber</p>
         <p class="author-title">CGI Artist</p>
-        <p class="stars">⭐⭐⭐⭐⭐</p>
+        <p class="stars">★★★★★</p>
         <p class="testimonial-quote">
           "One hour changed everything. I finally felt like me on camera. It's
           priceless."
@@ -241,7 +273,7 @@ title: Camera Confidence Coaching
       <div>
         <p class="author-name">Juan de Beer-Odendal</p>
         <p class="author-title">Business Owner</p>
-        <p class="stars">⭐⭐⭐⭐⭐</p>
+        <p class="stars">★★★★★</p>
         <p class="testimonial-quote">
           "You didn't just change how I show up—you changed my entire business.
           Deyson sees what others miss."
