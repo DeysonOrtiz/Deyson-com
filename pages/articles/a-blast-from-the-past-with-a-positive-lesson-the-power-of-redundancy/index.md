@@ -1,10 +1,14 @@
 ---
+
 title: "🌟 A Blast from the Past with a Positive Lesson: The Power of Redundancy 🌟"
 layout: layouts/article.njk
 date: 2023-05-04
 categories:
-  - "blog"
+
+- "blog"
+
 ---
+
 A little throwback to my early days as a young, enthusiastic video editor! 
 Many years ago, I was collaborating with a nationwide brand on a TV commercial, and we were just wrapping up the final touches on an additional, fun bonus spot. 
 💥 Boom! Right at that moment, our high-end, top-of-the-line editing system crashed. 😱
