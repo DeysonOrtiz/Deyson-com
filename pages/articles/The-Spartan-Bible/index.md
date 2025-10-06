@@ -35,7 +35,7 @@ Wake before distraction finds you. Begin the day with intention and clarity.
 Bathe or wash in cold water. Stand unmoved. Breathe deeply through the nose.  
 Cold trains the mind to stay steady when comfort fades.  
 
-> “A man who masters discomfort masters himself.”  
+> “He who masters discomfort masters himself.”  
 > “The will grows strong when the body obeys command.”  
 
 ---
@@ -44,7 +44,7 @@ Cold trains the mind to stay steady when comfort fades.
 
 Give one breath of thanks for life, for trial, and for another chance to grow.  
 
-> “Do not pray for easy lives. Pray to be stronger men.”  
+> “Do not pray for an easy life. Pray to be a stronger person.”  
 > “Gratitude in hardship builds power that cannot be stolen.”  
 > “He who is thankful in struggle learns joy in every hour.”  
 
