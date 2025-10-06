@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Worth the Price of Admission - Brand Style Guide</title>
+    <style>
+      /* Corda Webfont - requires MyWebfontsKit.css and font files in same folder */
+      @import url("MyWebfontsKit.css");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        background: white;
+        color: #1a1a1a;
+        line-height: 1.6;
+      }
+
+      .page {
+        width: 8.5in;
+        margin: 0 auto;
+        background: white;
+        page-break-after: always;
+        padding: 1.25in;
+        position: relative;
+      }
+
+      .corda-light {
+        font-family: CordaLight, Georgia, serif;
+        font-weight: 300;
+      }
+
+      .corda-regular {
+        font-family: CordaLight, Georgia, serif;
+        font-weight: 400;
+      }
+
+      .helvetica {
+        font-family: Helvetica, Arial, sans-serif;
+        font-weight: 400;
+      }
+
+      .rose {
+        color: #c55b73;
+      }
+
+      .ink {
+        color: #1a1a1a;
+      }
+
+      /* Cover Page */
+      .cover {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: #c55b73;
+        padding: 3in 2in;
+        margin: -1.25in -1.25in 2in -1.25in;
+        width: calc(100% + 2.5in);
+      }
+
+      .cover-logo {
+        font-family: CordaLight, Georgia, serif;
+        font-weight: 300;
+        font-size: 56px;
+        color: #fff1ed;
+        letter-spacing: 0.02em;
+        line-height: 1.3;
+        margin-bottom: 24px;
+      }
+
+      .cover-subtitle {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 20px;
+        color: #fff1ed;
+      }
+
+      /* Section Titles */
+      .section-title {
+        font-family: CordaLight, Georgia, serif;
+        font-weight: 300;
+        font-size: 44px;
+        color: #c55b73;
+        margin-bottom: 32px;
+        letter-spacing: 0.01em;
+      }
+
+      .section-subtitle {
+        font-size: 16px;
+        color: #6d7a83;
+        margin-bottom: 32px;
+      }
+
+      /* Content Sections */
+      .content-block {
+        margin-bottom: 24px;
+      }
+
+      .content-block h3 {
+        font-family: CordaLight, Georgia, serif;
+        font-weight: 300;
+        font-size: 24px;
+        color: #1a1a1a;
+        margin-bottom: 12px;
+      }
+
+      .content-block p {
+        font-size: 18px;
+        color: #1a1a1a;
+        line-height: 1.7;
+      }
+
+      /* Logo Section */
+      .logo-container {
+        text-align: center;
+        margin: 32px 0;
+      }
+
+      .logo-container a {
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .logo-container img {
+        max-width: 450px;
+        max-height: 250px;
+        width: auto;
+        height: auto;
+        transition: opacity 0.2s;
+      }
+
+      .logo-container img:hover {
+        opacity: 0.8;
+      }
+
+      .logo-label {
+        font-size: 12px;
+        color: #6d7a83;
+        margin-top: 12px;
+        font-style: italic;
+      }
+
+      /* Color Palette */
+      .color-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin: 32px 0;
+      }
+
+      .color-swatch {
+        text-align: left;
+      }
+
+      .swatch-box {
+        width: 100%;
+        height: 140px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      .swatch-name {
+        font-family: CordaLight, Georgia, serif;
+        font-weight: 400;
+        font-size: 20px;
+        color: #1a1a1a;
+        margin-bottom: 4px;
+      }
+
+      .swatch-hex {
+        font-size: 14px;
+        color: #6d7a83;
+        margin-bottom: 8px;
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+
+      .swatch-hex:hover {
+        color: #c55b73;
+      }
+
+      .swatch-description {
+        font-size: 18px;
+        color: #1a1a1a;
+        line-height: 1.5;
+      }
+
+      /* Typography */
+      .type-sample {
+        margin-bottom: 32px;
+      }
+
+      .type-display {
+        font-size: 48px;
+        margin-bottom: 12px;
+        line-height: 1.2;
+      }
+
+      .type-specs {
+        font-size: 13px;
+        color: #6d7a83;
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+
+      .hierarchy-list {
+        margin-top: 24px;
+        padding-left: 0;
+      }
+
+      .hierarchy-item {
+        font-size: 14px;
+        color: #1a1a1a;
+        margin-bottom: 8px;
+        list-style: none;
+      }
+
+      /* Voice and Tone */
+      .voice-example {
+        background: #fff1ed;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #c55b73;
+        margin: 20px 0;
+        font-size: 18px;
+        color: #1a1a1a;
+        line-height: 1.7;
+        font-style: italic;
+      }
+
+      .bullet-list {
+        margin: 16px 0;
+        padding-left: 20px;
+      }
+
+      .bullet-list li {
+        font-size: 18px;
+        color: #1a1a1a;
+        line-height: 1.7;
+        margin-bottom: 8px;
+      }
+
+      /* Download Button */
+      .download-all-btn {
+        background: #c55b73;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-bottom: 32px;
+        display: inline-block;
+      }
+
+      .download-all-btn:hover {
+        background: #b04a62;
+      }
+
+      .download-all-btn:disabled {
+        background: #6d7a83;
+        cursor: not-allowed;
+      }
+
+      @media print {
+        .page {
+          margin: 0;
+          padding: 1.25in;
+        }
+
+        @page {
+          size: letter;
+          margin: 0;
+        }
+
+        .swatch-box {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let lastCopiedElement = null;
+
+      function copyHexCode(hexCode, element) {
+        // Clear previous "Copied!" if it exists
+        if (lastCopiedElement) {
+          if (lastCopiedElement.hasAttribute("data-original-text")) {
+            lastCopiedElement.textContent =
+              lastCopiedElement.getAttribute("data-original-text");
+            lastCopiedElement.style.color = "#6D7A83";
+          }
+          lastCopiedElement.removeAttribute("data-copied");
+        }
+
+        // Copy to clipboard
+        navigator.clipboard.writeText(hexCode).then(function () {
+          // Check if this is a hex code text element
+          if (element.className && element.className.includes("swatch-hex")) {
+            element.setAttribute("data-original-text", element.textContent);
+            element.textContent = "Copied!";
+            element.style.color = "#C55B73";
+            lastCopiedElement = element;
+
+            setTimeout(function () {
+              element.textContent = element.getAttribute("data-original-text");
+              element.style.color = "#6D7A83";
+              lastCopiedElement = null;
+            }, 1500);
+          } else {
+            // Must be a swatch box
+            element.setAttribute("data-copied", "true");
+            lastCopiedElement = element;
+
+            setTimeout(function () {
+              element.removeAttribute("data-copied");
+              lastCopiedElement = null;
+            }, 1500);
+          }
+        });
+      }
+
+      async function downloadAllLogos() {
+        const button = document.getElementById("download-all-btn");
+        button.textContent = "Preparing download...";
+        button.disabled = true;
+
+        // Note: This requires JSZip library which we'll load from CDN
+        const script = document.createElement("script");
+        script.src =
+          "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js";
+        document.head.appendChild(script);
+
+        script.onload = async function () {
+          const zip = new JSZip();
+          const logos = [
+            "images/Worth The Price Of Admission - Stacked Center.png",
+            "images/Worth The Price Of Admission - 2 Lines - Rose.png",
+            "images/Worth The Price Of Admission - Web Header.png",
+            "images/Logo- Alpha Background.png",
+          ];
+
+          try {
+            for (const logoPath of logos) {
+              const response = await fetch(logoPath);
+              const blob = await response.blob();
+              const filename = logoPath.split("/").pop();
+              zip.file(filename, blob);
+            }
+
+            const content = await zip.generateAsync({ type: "blob" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(content);
+            link.download = "WTPA-Brand-Logos.zip";
+            link.click();
+
+            button.textContent = "Download All Logos";
+            button.disabled = false;
+          } catch (error) {
+            button.textContent = "Download Failed - Try Individual Downloads";
+            setTimeout(function () {
+              button.textContent = "Download All Logos";
+              button.disabled = false;
+            }, 3000);
+          }
+        };
+      }
+    </script>
+
+    <!-- Page 1: Cover -->
+    <div class="page" style="padding: 0">
+      <div class="cover">
+        <div class="cover-logo">Worth the Price<br />of Admission</div>
+        <div class="cover-subtitle">Brand Style Guide</div>
+      </div>
+    </div>
+
+    <!-- Page 2: Welcome -->
+    <div class="page">
+      <h1 class="section-title">Our Mission</h1>
+
+      <div class="content-block">
+        <p>
+          We believe stories shape the soul of our culture, not just for today,
+          but for generations to come. At Worth the Price of Admission, we set
+          out to discover and preserve the voices of those shaping the world:
+          the dreamers, the doers, the resilient, and the real.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <p>
+          Through raw, honest, and conversational documentaries, we dive beneath
+          the surface to uncover the journeys that define lives. The setbacks.
+          The breakthroughs. The quiet moments that carry the most significant
+          weight.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <p>
+          We are not chasing headlines; we are chasing truth. We seek the story
+          behind the spotlight. The kind of wisdom that does not expire.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <p>
+          Because one day, these stories will be the artifacts future
+          generations look back on, not just to remember, but to learn, grow,
+          and be inspired.
+        </p>
+      </div>
+
+      <div class="voice-example">
+        This is more than media. This is legacy work. Welcome to Worth the Price
+        of Admission, where every story is a gift to the future, and every
+        moment is worth preserving.
+      </div>
+    </div>
+
+    <!-- Page 3: About Jill Martin -->
+    <div class="page">
+      <h1 class="section-title">About Jill Martin</h1>
+
+      <div class="content-block">
+        <p>
+          Jill was a photographer for Live Nation, and she also lived in an
+          environment surrounded by prominent and fascinating individuals. This
+          unique setting not only influenced her artistic perspective but also
+          allowed her to forge meaningful connections and gain invaluable
+          experiences throughout her career.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <p>
+          Jill has always been fascinated by the stories of others and the paths
+          those individuals have taken to reach their current positions. This
+          show focuses on the friends she has made, the celebrities she has
+          encountered, and the extraordinary individuals who have crossed her
+          path.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <p>
+          Inspired and motivated by her husband, Paul, she is here to take you
+          behind the scenes, to the heart of what truly makes each tale "Worth
+          the Price of Admission."
+        </p>
+      </div>
+    </div>
+
+    <!-- Page 3: Logo - Stacked Center -->
+    <div class="page">
+      <h1 class="section-title">Stacked Center Logo</h1>
+      <p class="section-subtitle">
+        Balanced, Elegant, and Timeless Visual Identity
+      </p>
+
+      <div class="logo-container">
+        <a
+          href="images/Worth The Price Of Admission - Stacked Center.png"
+          download="WTPA-Stacked-Center-Logo.png"
+        >
+          <img
+            src="images/Worth The Price Of Admission - Stacked Center.png"
+            alt="Stacked Center Logo"
+          />
+        </a>
+        <div class="logo-label">
+          Primary logo for most applications (click to download)
+        </div>
+      </div>
+
+      <div class="content-block">
+        <p>
+          The stacked center logo embodies the essence of our brand identity.
+          Designed with elegance and precision, it captures the warm
+          sophistication that defines our show.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <h3>Usage Guidelines</h3>
+        <ul class="bullet-list">
+          <li>
+            <strong>Size and Spacing:</strong> Ensure the logo maintains
+            legibility and clarity. Adequate spacing around the logo allows it
+            to stand out.
+          </li>
+          <li>
+            <strong>Backgrounds:</strong> This logo performs best on clean
+            backgrounds. Use contrasting backgrounds for optimal visibility.
+          </li>
+          <li>
+            <strong>Consistency:</strong> Use the stacked logo according to
+            prescribed formats to ensure uniformity across all platforms.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Page 4: Logo - Two Line Rose -->
+    <div class="page">
+      <h1 class="section-title">Two-Line Rose Logo</h1>
+      <p class="section-subtitle">Compact Elegance for Horizontal Spaces</p>
+
+      <div class="logo-container">
+        <a
+          href="images/Worth The Price Of Admission - 2 Lines - Rose.png"
+          download="WTPA-Two-Line-Rose-Logo.png"
+        >
+          <img
+            src="images/Worth The Price Of Admission - 2 Lines - Rose.png"
+            alt="Two-Line Rose Logo"
+          />
+        </a>
+        <div class="logo-label">
+          Ideal for headers and horizontal layouts (click to download)
+        </div>
+      </div>
+
+      <div class="content-block">
+        <h3>Enhanced Versatility</h3>
+        <p>
+          The two-line format allows for seamless integration across various
+          platforms, from digital interfaces to printed materials. It ensures
+          our logo adapts effortlessly to different contexts while maintaining
+          professional appearance.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <h3>When to Use</h3>
+        <ul class="bullet-list">
+          <li>Website headers and navigation bars</li>
+          <li>Email signatures</li>
+          <li>Horizontal banner designs</li>
+          <li>Social media cover images</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Page 5: Logo - Web Header & Portrait -->
+    <div class="page">
+      <h1 class="section-title">Additional Logo Variations</h1>
+
+      <div class="logo-container">
+        <a
+          href="images/Worth The Price Of Admission - Web Header.png"
+          download="WTPA-Web-Header-Logo.png"
+        >
+          <img
+            src="images/Worth The Price Of Admission - Web Header.png"
+            alt="Web Header Logo"
+          />
+        </a>
+        <div class="logo-label">Horizontal Web Header (click to download)</div>
+      </div>
+
+      <div class="logo-container">
+        <a
+          href="images/Logo- Alpha Background.png"
+          download="WTPA-Alpha-Portrait-Logo.png"
+        >
+          <img
+            src="images/Logo- Alpha Background.png"
+            alt="Alpha Portrait Version"
+          />
+        </a>
+        <div class="logo-label">
+          Portrait Version with Alpha Background (click to download)
+        </div>
+      </div>
+
+      <div class="content-block">
+        <p>
+          These variations provide flexibility for different applications while
+          maintaining brand consistency. The portrait version with the alpha
+          background adds personal warmth and connection to the brand.
+        </p>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px">
+        <button
+          id="download-all-btn"
+          class="download-all-btn"
+          onclick="downloadAllLogos()"
+        >
+          Download All Logos
+        </button>
+      </div>
+    </div>
+
+    <!-- Page 6: Color Palette -->
+    <div class="page">
+      <h1 class="section-title">Color Palette</h1>
+      <p class="section-subtitle">A Foundation of Warmth and Sophistication</p>
+
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="swatch-box" style="background: #c55b73"></div>
+          <div class="swatch-name">Rose</div>
+          <div
+            class="swatch-hex"
+            onclick="copyHexCode('#C55B73', this)"
+            title="Click to copy"
+          >
+            #C55B73
+          </div>
+          <div class="swatch-description">
+            Our primary brand color. Represents warmth, compassion, and
+            meaningful connection. Used for headlines and key brand elements.
+          </div>
+        </div>
+
+        <div class="color-swatch">
+          <div class="swatch-box" style="background: #f3d5d4"></div>
+          <div class="swatch-name">Blush</div>
+          <div
+            class="swatch-hex"
+            onclick="copyHexCode('#F3D5D4', this)"
+            title="Click to copy"
+          >
+            #F3D5D4
+          </div>
+          <div class="swatch-description">
+            A soft, gentle complement to Rose. Adds subtle elegance and warmth,
+            perfect for backgrounds and accent elements.
+          </div>
+        </div>
+
+        <div class="color-swatch">
+          <div class="swatch-box" style="background: #fff1ed"></div>
+          <div class="swatch-name">Cream</div>
+          <div
+            class="swatch-hex"
+            onclick="copyHexCode('#FFF1ED', this)"
+            title="Click to copy"
+          >
+            #FFF1ED
+          </div>
+          <div class="swatch-description">
+            Radiating softness and approachability. Creates a serene, welcoming
+            atmosphere for content and backgrounds.
+          </div>
+        </div>
+
+        <div class="color-swatch">
+          <div class="swatch-box" style="background: #1a1a1a"></div>
+          <div class="swatch-name">Ink</div>
+          <div
+            class="swatch-hex"
+            onclick="copyHexCode('#1A1A1A', this)"
+            title="Click to copy"
+          >
+            #1A1A1A
+          </div>
+          <div class="swatch-description">
+            A deep, rich neutral for body text and secondary elements. Ensures
+            readability and grounds the design.
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="content-block"
+        style="
+          margin-top: 24px;
+          padding: 16px;
+          background: #fff1ed;
+          border-radius: 8px;
+        "
+      >
+        <p style="font-size: 18px; color: #1a1a1a; margin: 0">
+          <strong>Tip:</strong> Click on any hex code (example: #C55B73) to copy
+          it to your clipboard for easy use in design software.
+        </p>
+      </div>
+    </div>
+
+    <!-- Page 7: Typography -->
+    <div class="page">
+      <h1 class="section-title">Typography</h1>
+      <p class="section-subtitle">Elegant Headlines, Clean Body Text</p>
+
+      <div class="type-sample">
+        <div class="type-display corda-light rose">Corda Light</div>
+        <div class="type-specs">
+          Primary headline font<br />Elegant, sophisticated, warm
+        </div>
+        <p>
+          Corda Light brings a contemporary elegance to our brand
+          communications. Its refined curves and clean lines ensure our
+          headlines are both readable and distinctive.
+        </p>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-display helvetica ink">Helvetica Regular</div>
+        <div class="type-specs">
+          Body and supporting text<br />Clean, readable, timeless
+        </div>
+        <p>
+          Helvetica Regular offers clarity and versatility. Known for its modern
+          lines, it ensures our communications are easily readable and
+          professional across all platforms.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <h3>Typography Hierarchy</h3>
+        <ul class="hierarchy-list">
+          <li class="hierarchy-item">
+            <strong>H1:</strong> Corda Light, 44 pixels, Rose for main headlines
+            and page titles
+          </li>
+          <li class="hierarchy-item">
+            <strong>H2:</strong> Corda Light, 32 pixels, Rose for section
+            headers
+          </li>
+          <li class="hierarchy-item">
+            <strong>H3:</strong> Corda Regular, 24 pixels, Ink for subsection
+            headers
+          </li>
+          <li class="hierarchy-item">
+            <strong>Body:</strong> Helvetica Regular, 16 pixels, Ink for all
+            body copy
+          </li>
+          <li class="hierarchy-item">
+            <strong>Captions:</strong> Helvetica Regular, 14 pixels, Ink for
+            image captions and small text
+          </li>
+        </ul>
+      </div>
+
+      <div
+        class="content-block"
+        style="
+          margin-top: 48px;
+          padding-top: 32px;
+          border-top: 1px solid #f3d5d4;
+        "
+      >
+        <h3>Typography Resources</h3>
+        <p style="margin-bottom: 16px">
+          <strong>Font Name:</strong> Corda (Light & Regular weights)
+        </p>
+        <p style="margin-bottom: 16px">
+          <strong>Foundry:</strong> XPRMNTL Design (via MyFonts)
+        </p>
+        <p style="margin-bottom: 16px">
+          <strong>Download Link:</strong><br />
+          <a
+            href="MyWebfontsKit.css"
+            style="color: #c55b73; text-decoration: none"
+            >MyWebfontsKit.css (included in this folder)</a
+          >
+        </p>
+        <p style="margin-bottom: 16px">
+          <strong>Required Weights:</strong> Light (300), Regular (400)
+        </p>
+        <p style="margin-bottom: 16px">
+          <strong>License Types:</strong> Web license for digital applications
+          (Desktop license required separately for print materials)
+        </p>
+        <p style="margin-bottom: 0">
+          <strong>Web Fallback Fonts:</strong> Georgia, serif (for environments
+          where Corda is not licensed)
+        </p>
+      </div>
+    </div>
+
+    <!-- Page 8: Voice and Tone -->
+    <div class="page">
+      <h1 class="section-title">Voice and Tone</h1>
+      <p class="section-subtitle">
+        Raw, Honest, and Conversational Communication
+      </p>
+
+      <div class="content-block">
+        <h3>Voice Characteristics</h3>
+        <ul class="bullet-list">
+          <li>
+            <strong>Raw and Honest:</strong> We embrace authenticity over
+            polish. Our conversations dig beneath the surface to reveal real,
+            unfiltered human experiences.
+          </li>
+          <li>
+            <strong>Conversational and Intimate:</strong> We speak as if sharing
+            stories over coffee; warm, engaging, and personal.
+          </li>
+          <li>
+            <strong>Respectful and Honoring:</strong> Every story is treated
+            with dignity. We recognize the courage it takes to share personal
+            journeys.
+          </li>
+          <li>
+            <strong>Truth-Seeking:</strong> We are not chasing headlines; we are
+            chasing truth. We seek the story behind the spotlight.
+          </li>
+          <li>
+            <strong>Legacy-Minded:</strong> We create content that stands the
+            test of time; wisdom that does not expire.
+          </li>
+        </ul>
+      </div>
+
+      <div class="voice-example">
+        "We believe stories shape the soul of our culture, not just for today,
+        but for generations to come."
+      </div>
+
+      <div class="content-block">
+        <h3>Communication Guidelines</h3>
+        <ul class="bullet-list">
+          <li>
+            <strong>Dive beneath the surface:</strong> Ask questions that reveal
+            the setbacks, breakthroughs, and quiet moments that carry weight
+          </li>
+          <li>
+            <strong>Be conversational:</strong> Write and speak naturally, as if
+            having an intimate conversation
+          </li>
+          <li>
+            <strong>Focus on the journey:</strong> Highlight the path taken, not
+            just the destination
+          </li>
+          <li>
+            <strong>Keep it real:</strong> Embrace imperfection and
+            vulnerability over manufactured perfection
+          </li>
+          <li>
+            <strong>Think generationally:</strong> Create content that future
+            generations will look back on to learn, grow, and be inspired
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Page 9: Final Page -->
+    <div class="page">
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          text-align: center;
+        "
+      >
+        <div
+          class="cover-logo"
+          style="
+            font-family: CordaLight, Georgia, serif;
+            color: #c55b73;
+            font-size: 48px;
+            margin-bottom: 32px;
+          "
+        >
+          Worth the Price<br />of Admission
+        </div>
+        <div
+          style="
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            color: #6d7a83;
+          "
+        >
+          The Stories Behind Inspiring People
+        </div>
+        <div
+          style="
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #1a1a1a;
+            margin-top: 48px;
+          "
+        >
+          worththepriceofadmission.com
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

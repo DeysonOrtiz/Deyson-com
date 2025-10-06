@@ -5,6 +5,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("tools");
+  eleventyConfig.addPassthroughCopy("clients");
 
   // Dynamically copy all article images to match clean URLs structure
   const fs = require("fs");
