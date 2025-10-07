@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tim Gannon Live: Dreams Do Not Expire</title>
+    <meta
+      name="description"
+      content="From parking cars to a four billion dollar brand and five U.S. Open Polo Championships. An evening with Tim Gannon."
+    />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta property="og:title" content="Tim Gannon Live: Dreams Do Not Expire" />
+    <meta property="og:description" content="Temporary pitch page." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#B01C12" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brand-primary: #b01c12;
+        --brand-dark: #0a0809;
+        --brand-sand: #f6f2e7;
+        --brand-accent: #dedccf;
+        --brand-gold: #c8a15a;
+        --brand-light: #ffffff;
+        --font-primary:
+          "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+          sans-serif;
+
+        --shadow-xl: 0 25px 50px -12px rgba(10, 8, 9, 0.25);
+        --shadow-2xl: 0 25px 50px -12px rgba(176, 28, 18, 0.15);
+        --gradient-primary: linear-gradient(
+          135deg,
+          var(--brand-primary) 0%,
+          #d4281e 100%
+        );
+        --gradient-gold: linear-gradient(
+          135deg,
+          var(--brand-gold) 0%,
+          #e6c16a 100%
+        );
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--brand-dark);
+        color: var(--brand-light);
+        font-family: var(--font-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Header */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(10, 8, 9, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(176, 28, 18, 0.1);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .header.scrolled {
+        background: rgba(10, 8, 9, 0.98);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: var(--brand-primary);
+        text-decoration: none;
+        letter-spacing: -0.02em;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .nav a {
+        color: var(--brand-light);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--brand-primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav a:hover::after {
+        width: 100%;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+      }
+
+      .btn:hover::before {
+        transform: translateX(100%);
+      }
+
+      .btn-primary {
+        background: var(--gradient-primary);
+        color: white;
+        box-shadow: var(--shadow-2xl);
+        transform: translateY(0);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 35px 60px -12px rgba(176, 28, 18, 0.25);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--brand-light);
+        border: 2px solid var(--brand-primary);
+      }
+
+      .btn-ghost:hover {
+        background: var(--brand-primary);
+        transform: translateY(-2px);
+      }
+
+      .btn-xl {
+        padding: 1.25rem 3rem;
+        font-size: 1.125rem;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(176, 28, 18, 0.1) 0%,
+          var(--brand-dark) 70%
+        );
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(200, 161, 90, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(176, 28, 18, 0.1) 0%,
+            transparent 50%
+          );
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(1deg);
+        }
+      }
+
+      .hero-content {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-text {
+        animation: slideInLeft 0.8s ease-out;
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .section-kicker {
+        display: inline-block;
+        background: var(--gradient-gold);
+        color: var(--brand-dark);
+        padding: 0.5rem 1.25rem;
+        border-radius: 25px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 1.5rem;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 6vw, 5rem);
+        font-weight: 900;
+        line-height: 1.1;
+        margin: 0 0 1.5rem 0;
+        background: linear-gradient(
+          135deg,
+          var(--brand-light) 0%,
+          var(--brand-gold) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+        max-width: 500px;
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .trust-indicators {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap;
+      }
+
+      .trust-indicators li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--brand-gold);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .trust-indicators li::before {
+        content: "✓";
+        background: var(--brand-primary);
+        color: white;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 900;
+      }
+
+      /* Hero Video */
+      .hero-video {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow-xl);
+        animation: slideInRight 0.8s ease-out 0.2s both;
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .video-placeholder {
+        aspect-ratio: 16/9;
+        background: linear-gradient(
+          135deg,
+          var(--brand-accent) 0%,
+          var(--brand-sand) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: var(--brand-dark);
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .video-placeholder:hover {
+        transform: scale(1.02);
+      }
+
+      .play-button {
+        width: 80px;
+        height: 80px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        box-shadow: var(--shadow-2xl);
+        transition: all 0.3s ease;
+      }
+
+      .play-button:hover {
+        transform: scale(1.1);
+      }
+
+      .play-button::after {
+        content: "▶";
+        color: white;
+        font-size: 1.5rem;
+        margin-left: 4px;
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 6rem 0;
+        position: relative;
+      }
+
+      .section:nth-child(even) {
+        background: rgba(246, 242, 231, 0.02);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section h2 {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+        font-weight: 900;
+        margin: 0 0 1rem 0;
+        background: linear-gradient(
+          135deg,
+          var(--brand-light) 0%,
+          var(--brand-gold) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Benefits Grid */
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .benefit-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.05) 0%,
+          rgba(255, 255, 255, 0.02) 100%
+        );
+        border: 1px solid rgba(176, 28, 18, 0.2);
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .benefit-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-primary);
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--brand-primary);
+      }
+
+      .benefit-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 1rem 0;
+        color: var(--brand-light);
+      }
+
+      /* Stats Section */
+      .stats-section {
+        background: linear-gradient(
+          135deg,
+          var(--brand-primary) 0%,
+          #d4281e 100%
+        );
+        color: white;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        text-align: center;
+      }
+
+      .stat {
+        animation: fadeInUp 0.6s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        color: var(--brand-gold);
+      }
+
+      .stat-label {
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      /* CTA Section */
+      .final-cta {
+        background: radial-gradient(
+          ellipse at center,
+          rgba(176, 28, 18, 0.2) 0%,
+          var(--brand-dark) 70%
+        );
+        text-align: center;
+        padding: 8rem 0;
+      }
+
+      .final-cta h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 2rem;
+      }
+
+      .countdown-container {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0.05) 100%
+        );
+        border: 1px solid rgba(176, 28, 18, 0.3);
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 3rem auto;
+        max-width: 500px;
+        backdrop-filter: blur(10px);
+      }
+
+      .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--brand-gold);
+        margin-bottom: 1rem;
+      }
+
+      .countdown-unit {
+        text-align: center;
+      }
+
+      .countdown-label {
+        font-size: 0.8rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--brand-light);
+        opacity: 0.8;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--brand-dark);
+        padding: 2rem 0;
+        border-top: 1px solid rgba(176, 28, 18, 0.2);
+        text-align: center;
+        opacity: 0.7;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .hero-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          text-align: center;
+        }
+
+        .nav {
+          display: none;
+        }
+
+        .hero {
+          padding: 6rem 0 4rem;
+        }
+
+        .section {
+          padding: 4rem 0;
+        }
+
+        .cta-row {
+          justify-content: center;
+        }
+
+        .countdown {
+          font-size: 1.5rem;
+          gap: 1rem;
+        }
+      }
+
+      /* Scroll Animations */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.6s ease;
+      }
+
+      .animate-on-scroll.in-view {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body id="top">
+    <header class="header">
+      <div class="container">
+        <div class="nav-container">
+          <a href="#top" class="logo">TIM GANNON</a>
+          <nav class="nav">
+            <a href="#about">About</a>
+            <a href="#why">Why Attend</a>
+            <a href="#final-cta">Details</a>
+          </nav>
+          <a class="btn btn-primary" href="https://example.com/tickets"
+            >Get Tickets</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text">
+              <div class="section-kicker">Live Event</div>
+              <h1>Dreams<br />Do Not Expire</h1>
+              <p class="hero-subtitle">
+                From parking cars in Fort Lauderdale to founding a four billion
+                dollar empire and becoming world number one in polo at fifty.
+                The man who tore up a million-dollar check shares the principles
+                that changed everything.
+              </p>
+              <div class="cta-row">
+                <a
+                  class="btn btn-primary btn-xl"
+                  href="https://example.com/tickets"
+                >
+                  Secure Your Seat
+                </a>
+                <a class="btn btn-ghost" href="#trailer"> Watch Preview </a>
+              </div>
+              <ul class="trust-indicators">
+                <li>Featured on Steve Harvey</li>
+                <li>Wharton Guest Instructor</li>
+              </ul>
+            </div>
+            <div class="hero-video">
+              <div class="video-placeholder" id="hero-video">
+                <div class="play-button"></div>
+                <h3 style="margin: 0; font-size: 1.5rem">Watch the Story</h3>
+                <p style="margin: 0.5rem 0 0 0; opacity: 0.8">
+                  See what drives a champion
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="trailer" class="section">
+        <div class="container">
+          <div class="section-header animate-on-scroll">
+            <h2>The Story Behind the Success</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9">
+              Watch Tim share the pivotal moments that shaped his journey
+            </p>
+          </div>
+          <div
+            style="
+              position: relative;
+              padding-top: 56.25%;
+              border-radius: 20px;
+              overflow: hidden;
+              box-shadow: var(--shadow-xl);
+              background: var(--brand-dark);
+            "
+          >
+            <iframe
+              src="https://player.vimeo.com/video/1122490700?h=ae29185481"
+              title="Tim Gannon Live Trailer"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              style="position: absolute; inset: 0; width: 100%; height: 100%"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        style="
+          background: linear-gradient(
+            135deg,
+            rgba(10, 8, 9, 0.95) 0%,
+            rgba(176, 28, 18, 0.1) 100%
+          );
+        "
+      >
+        <div class="container">
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 4rem;
+              align-items: center;
+            "
+          >
+            <div class="animate-on-scroll">
+              <div class="section-kicker">The Defining Moment</div>
+              <h2>The Million-Dollar Check</h2>
+              <p
+                style="
+                  font-size: 1.2rem;
+                  margin-bottom: 2rem;
+                  color: var(--brand-gold);
+                  font-style: italic;
+                "
+              >
+                "I had to take courage deep down, as deep as you go, to find the
+                courage to rip that check up."
+              </p>
+              <p style="margin-bottom: 1.5rem">
+                Tim was drowning in debt. A quarter million dollars at eighteen
+                percent interest. A four-year-old and two-year-old at home. His
+                boss offered him a blank check, anything under a million
+                dollars.
+              </p>
+              <p style="margin-bottom: 1.5rem">
+                For twenty minutes, Tim stared at that check. It would eliminate
+                his debt, secure his family's future, buy them a house. But it
+                came with invisible chains.
+              </p>
+              <p style="color: var(--brand-light); font-weight: 600">
+                "That's not the way I'm going to earn my money. I'm going to
+                earn it with someone, not for someone."
+              </p>
+            </div>
+            <div class="animate-on-scroll" style="text-align: center">
+              <div
+                style="
+                  background: var(--gradient-gold);
+                  border-radius: 20px;
+                  padding: 3rem;
+                  color: var(--brand-dark);
+                  position: relative;
+                  overflow: hidden;
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    top: -20px;
+                    right: -20px;
+                    width: 100px;
+                    height: 100px;
+                    background: rgba(176, 28, 18, 0.1);
+                    border-radius: 50%;
+                  "
+                ></div>
+                <h3
+                  style="margin: 0 0 1rem 0; font-size: 2rem; font-weight: 900"
+                >
+                  The Choice
+                </h3>
+                <p style="margin: 0; font-size: 1.1rem; line-height: 1.4">
+                  That torn check became the foundation of a four billion dollar
+                  empire. Sometimes your greatest moment of courage looks like
+                  your biggest mistake.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 4rem;
+              align-items: center;
+            "
+          >
+            <div class="animate-on-scroll">
+              <div class="section-kicker">The Man Behind the Story</div>
+              <h2>From Valet to Visionary</h2>
+              <p style="margin-bottom: 1.5rem">
+                "I changed my name in third grade from John to Tim. That was the
+                first thing I remember doing to sort of recreate who I was."
+                From that early act of self-determination to building a global
+                empire, Tim's story is about the courage to reinvent yourself.
+              </p>
+              <p style="margin-bottom: 1.5rem">
+                Founder of Outback Steakhouse, five-time U.S. Open Polo
+                Champion, and world number one player at age fifty. But the real
+                story is not the achievements, it's the principles that made
+                them inevitable.
+              </p>
+              <p style="color: var(--brand-gold); font-style: italic">
+                "Dreams do not expire. They just wait for you to find the
+                courage to pursue them."
+              </p>
+            </div>
+            <div class="animate-on-scroll" style="text-align: center">
+              <div
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    rgba(255, 255, 255, 0.05) 100%
+                  );
+                  border: 1px solid rgba(176, 28, 18, 0.3);
+                  border-radius: 20px;
+                  padding: 3rem;
+                  backdrop-filter: blur(10px);
+                "
+              >
+                <h3
+                  style="
+                    margin: 0 0 1.5rem 0;
+                    font-size: 1.5rem;
+                    color: var(--brand-gold);
+                  "
+                >
+                  The Philosophy
+                </h3>
+                <p
+                  style="
+                    margin: 0 0 1rem 0;
+                    font-size: 1.1rem;
+                    line-height: 1.4;
+                  "
+                >
+                  "When you don't have a father, mothers teach you right from
+                  wrong. But fathers teach you how to make money."
+                </p>
+                <p style="margin: 0; opacity: 0.9; font-size: 0.95rem">
+                  Tim learned to find mentors everywhere and turn every setback
+                  into a setup for something greater.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="why" class="section">
+        <div class="container">
+          <div class="section-header animate-on-scroll">
+            <div class="section-kicker">Transform Your Mindset</div>
+            <h2>What You Will Take Home</h2>
+            <p
+              style="
+                font-size: 1.2rem;
+                opacity: 0.9;
+                max-width: 600px;
+                margin: 0 auto;
+              "
+            >
+              More than inspiration.<br />Practical wisdom from someone who has
+              lived it.
+            </p>
+          </div>
+          <div class="benefits-grid">
+            <div class="benefit-card animate-on-scroll">
+              <h3>Find Your Velcro</h3>
+              <p>
+                Like the Swiss watchmaker who invented Velcro from sand spurs on
+                his dog, discover the breakthrough moment hiding in plain sight.
+              </p>
+            </div>
+            <div class="benefit-card animate-on-scroll">
+              <h3>Courage to Choose</h3>
+              <p>
+                The million-dollar check moment that defined everything. Learn
+                to choose integrity over comfort every time.
+              </p>
+            </div>
+            <div class="benefit-card animate-on-scroll">
+              <h3>Principles That Scale</h3>
+              <p>
+                From idea to four-billion-dollar brand. The leadership
+                principles that work at every level of growth.
+              </p>
+            </div>
+            <div class="benefit-card animate-on-scroll">
+              <h3>Never Too Late</h3>
+              <p>
+                World number one in polo at age fifty. Your best chapters may
+                still be ahead of you right now.
+              </p>
+            </div>
+            <div class="benefit-card animate-on-scroll">
+              <h3>Team Building Mastery</h3>
+              <p>
+                How to recognize talent and build teams that execute your vision
+                with passion, even when you are not present.
+              </p>
+            </div>
+            <div class="benefit-card animate-on-scroll">
+              <h3>Optimism to a Fault</h3>
+              <p>
+                Turn your greatest weakness into your greatest strength. How
+                champions think differently about inevitable setbacks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section stats-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>The Numbers Tell a Story</h2>
+          </div>
+          <div class="stats-grid">
+            <div class="stat">
+              <div class="stat-number">$4B</div>
+              <div class="stat-label">Brand Value Created</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">5×</div>
+              <div class="stat-label">U.S. Open Champion</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">#1</div>
+              <div class="stat-label">World Ranking at 50</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">1000+</div>
+              <div class="stat-label">Restaurants Globally</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" id="final-cta">
+        <div class="container">
+          <div class="section-kicker">Limited Seats Available</div>
+          <h2>Experience the Story.<br />Leave with Belief.</h2>
+
+          <div class="countdown-container">
+            <div class="countdown" id="countdown">
+              <div class="countdown-unit">
+                <div id="days">000</div>
+                <div class="countdown-label">Days</div>
+              </div>
+              <div class="countdown-unit">
+                <div id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+              </div>
+              <div class="countdown-unit">
+                <div id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+              </div>
+              <div class="countdown-unit">
+                <div id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+              </div>
+            </div>
+            <p style="margin: 0; opacity: 0.8">
+              November 15, 2025 • Palm Beach Convention Center
+            </p>
+          </div>
+
+          <a class="btn btn-primary btn-xl" href="https://example.com/tickets">
+            Reserve Your Seat Now
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Tim Gannon. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Header scroll effect
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector(".header");
+        if (window.scrollY > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Hero video click handler
+      document.getElementById("hero-video").addEventListener("click", () => {
+        const trailerSection = document.getElementById("trailer");
+        trailerSection.scrollIntoView({ behavior: "smooth" });
+
+        // Auto-play the video when clicked
+        const iframe = trailerSection.querySelector("iframe");
+        const currentSrc = iframe.src;
+        if (!currentSrc.includes("autoplay=1")) {
+          iframe.src = currentSrc + "&autoplay=1";
+        }
+      });
+
+      // Countdown
+      const targetDate = new Date("2025-11-15T19:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance > 0) {
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+          );
+          const minutes = Math.floor(
+            (distance % (1000 * 60 * 60)) / (1000 * 60),
+          );
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          document.getElementById("days").textContent = String(days).padStart(
+            3,
+            "0",
+          );
+          document.getElementById("hours").textContent = String(hours).padStart(
+            2,
+            "0",
+          );
+          document.getElementById("minutes").textContent = String(
+            minutes,
+          ).padStart(2, "0");
+          document.getElementById("seconds").textContent = String(
+            seconds,
+          ).padStart(2, "0");
+        }
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
